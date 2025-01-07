@@ -27,8 +27,8 @@ class Stores extends Model
     ];
 
     
-// public function language()
-// {
-//     return $this->belongsTo(Language::class, 'language_id');
-// }
+public function language()
+{
+    return $this->belongsTo(Language::class, 'language_id');
+}
 }

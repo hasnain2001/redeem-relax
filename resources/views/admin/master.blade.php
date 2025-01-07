@@ -117,7 +117,7 @@
                             </a>
                         </li>
                         
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-ticket-alt"></i>
                                 <p>
@@ -291,7 +291,7 @@
                                
                             </ul>
                         </li>
-                      --}}
+                     
                       <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-alt"></i>

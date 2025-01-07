@@ -24,7 +24,7 @@
             <div class="container-fluid">
              
                 <div class="row text-center">
-                    {{-- <div class="col-md-2">
+                    <div class="col-md-2">
                         <div class="card shadow-sm border-0">
                             <div class="card-body bg-dark">
                                 <h5 class="card-title">
@@ -89,7 +89,7 @@
                             <a href="{{route('admin.lang')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                     --}}
+                    
                       <!-- Users -->
                     <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                         <div class="small-box bg-primary">

@@ -102,28 +102,9 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user-alt"></i>
-                            <p>
-                                User
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                                    
-                          
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>User</p>
-                                </a>
-                            </li>
-                           
-                        </ul>
-                    </li>
+               
                     
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-ticket-alt"></i>
                             <p>
@@ -296,7 +277,27 @@
                            
                            
                         </ul>
-                    </li> --}}
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user-alt"></i>
+                            <p>
+                                User
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                                    
+                          
+                            <li class="nav-item">
+                                <a href="{{ route('admin.user.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                           
+                        </ul>
+                    </li>
                  
 
                 </ul>
@@ -347,7 +348,7 @@
     <script src="/admin/dist/js/demo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
-    {{-- <script>
+    <script>
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
@@ -405,7 +406,7 @@
               });
             }
         });
-    </script> --}}
+    </script>
 </body>
 
 <!-- Mirrored from adminlte.io/themes/v3/pages/tables/data.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Feb 2024 08:09:01 GMT -->
