@@ -13,4 +13,10 @@ class AdminController extends Controller
     
        return view('admin.dashboard',compact('users'));
    }
+
+   public function index()
+   {  
+   $users =User::all();
+   return view('admin.user.index', compact('users',));
+   }
 }

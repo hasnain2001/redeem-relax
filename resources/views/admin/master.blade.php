@@ -117,7 +117,7 @@
                             </a>
                         </li>
                         
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-ticket-alt"></i>
                                 <p>
@@ -187,26 +187,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user-alt"></i>
-                                <p>
-                                    User
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                        
-                              
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.user.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>User</p>
-                                    </a>
-                                </li>
-                               
-                            </ul>
-                        </li>
+                       
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-language"></i>
@@ -310,8 +291,27 @@
                                
                             </ul>
                         </li>
-                     
-
+                      --}}
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user-alt"></i>
+                            <p>
+                                User
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                                    
+                          
+                            <li class="nav-item">
+                                <a href="{{ route('admin.user.index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                           
+                        </ul>
+                    </li>
                     </ul>
                 </nav>
 
