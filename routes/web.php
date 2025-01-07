@@ -16,10 +16,8 @@ Route::get('/', function () {
 
 // Admin routes
 Route::middleware([RoleMiddleware::class])->group(function () {
-   
-
-    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
-    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard  ');
+      Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 
 Route::prefix('employee')->name('employee.')->group(function () {
     Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
@@ -29,4 +27,6 @@ Route::prefix('employee')->name('employee.')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
+
 
