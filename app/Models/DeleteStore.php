@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DeleteStore extends Model
 {
-    //
+    protected $fillable = ['store_id', 'store_name', 'deleted_by'];
+    
+    public function deletedBy()
+    {
+        return $this->belongsTo(User::class, 'deleted_by');
+    }
 }

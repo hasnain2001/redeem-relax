@@ -216,7 +216,7 @@
             // Function to check if the slug exists
             function checkSlugExistence(slug) {
                 $.ajax({
-                    url: '{{ route('admin.check.slug') }}',
+                    url: '{{ route('check.slug') }}',
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',

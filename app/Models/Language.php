@@ -12,4 +12,9 @@ class Language extends Model
         'code',
         
        ];
+       public function stores()
+{
+    return $this->hasMany(Stores::class, 'language_id');
+}
+
 }

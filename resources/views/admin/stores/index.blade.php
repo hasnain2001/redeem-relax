@@ -62,10 +62,10 @@
                     <tr>
                         <td><input type="checkbox" name="selected_stores[]" value="{{ $store->id }}"></td>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $store->name }}</td>
+                        <td>{{ $store->name?:'Null' }}</td>
                         <td><img class="img-thumbnail" src="{{ $store->store_image ? asset('uploads/stores/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" alt="Card Image"  style="max-width: 40px;"></td>
-                        <td>{{ $store->network }}</td>
-                        <td>{{ $store->category }}</td>
+                        <td>{{ $store->network ?:'Null' }}</td>
+                        <td>{{ $store->category ?:'Null' }}</td>
 
                         <td>
                              @if ($store->status == "disable")
@@ -75,7 +75,7 @@
           @endif
                         </td>
                         
-                        {{-- <td>{{ $store->language->code ??'No language' }}</td> --}}
+                        {{-- <td>{{ $store->language->name ??'No language' }}</td> --}}
 
 
                               

@@ -36,14 +36,15 @@ Route::middleware([RoleMiddleware::class])->group(function () {
 
     // AdminBlogs Routes Begin
     Route::controller(BlogController::class)->prefix('admin')->group(function () {
-        Route::get('/Blog',  'blogs_show')->name('admin.blog.show');
-        Route::get('/blog/create',  'create')->name('admin.blog.create');
-        Route::post('/blog/store', 'store')->name('admin.blog.store');
-        Route::get('/blog/{id}/edit', 'edit')->name('admin.blog.edit');
-        Route::post('/admin/Blog/update/{id}', 'update')->name('admin.Blog.update');
-        Route::delete('/admin/Blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.delete');
-        Route::post('/blog/deleteSelected', [BlogController::class, 'deleteSelected'])->name('admin.blog.deleteSelected');
-        Route::delete('/blog/bulk-delete', [BlogController::class, 'deleteSelected'])->name('admin.blog.bulkDelete');
+    Route::get('/Blog',  'blogs_show')->name('admin.blog.show');
+    Route::get('/blog/create',  'create')->name('admin.blog.create');
+    Route::post('/blog/store', 'store')->name('admin.blog.store');
+    Route::get('/blog/{id}/edit', 'edit')->name('admin.blog.edit');
+    Route::post('/admin/Blog/update/{id}', 'update')->name('admin.Blog.update');
+    Route::delete('/admin/Blog/{id}', [BlogController::class, 'destroy'])->name('admin.blog.delete');
+    Route::post('/blog/deleteSelected', [BlogController::class, 'deleteSelected'])->name('admin.blog.deleteSelected');
+    Route::delete('/blog/bulk-delete', [BlogController::class, 'deleteSelected'])->name('admin.blog.bulkDelete');
+    Route::post('/blog/create', 'checkSlug')->name('blog.check.slug');
     });
 
     // Stores Routes Begin
@@ -56,8 +57,9 @@ Route::middleware([RoleMiddleware::class])->group(function () {
         Route::get('/store/delete/{id}', 'delete_store')->name('store.delete');
         Route::post('/store/deleteSelected', 'deleteSelected')->name('store.deleteSelected');
         Route::get('/stores/{slug}', 'StoreDetails')->name('store_details');
-        Route::post('/check-slug', 'checkSlug')->name('check.slug');
+      
     });
+    Route::post('/check-slug',[StoresController::class, 'checkSlug'] )->name('check.slug');
 
 
     // Categories Routes Begin
@@ -69,6 +71,7 @@ Route::middleware([RoleMiddleware::class])->group(function () {
         Route::post('/category/update/{id}', 'update_category')->name('admin.category.update');
         Route::get('/category/delete/{id}', 'delete_category')->name('admin.category.delete');
          Route::post('/category/deleteSelected', 'deleteSelected')->name('admin.category.deleteSelected');
+         Route::post('/check-slug', 'checkSlug')->name('admin.category.check.slug');
     });
 
 

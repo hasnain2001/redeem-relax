@@ -81,18 +81,19 @@
     </div>
     <div class="form-group">
     <label for="lang">Language <span class="text-danger">*</span></label>
-    <select name="language_id" id="lang" class="form-control" >
-    <option disabled selected>--Select Langs--</option>
-
-    <!-- Check if $stores->language exists before displaying the language name -->
-    <option value="" disabled selected>
-    {{ $stores->language ? $stores->language->code : '--Select Langs--' }}
-    </option>
-
-    @foreach ($langs as $lang)
-    <option value="{{ $lang->id }}">{{ $lang->code }}</option>
-    @endforeach
+    <select name="language_id" id="lang" class="form-control">
+        <option disabled>--Select Langs--</option>
+        
+        <!-- Loop through languages and set the selected option -->
+        @foreach ($langs as $lang)
+            <option value="{{ $lang->id }}" 
+                {{ isset($stores->language_id) && $stores->language_id == $lang->id ? 'selected' : '' }}>
+                {{ $lang->code }}
+            </option>
+        @endforeach
     </select>
+    
+
 
     </div>
     <div class="form-group">
