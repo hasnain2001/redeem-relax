@@ -137,10 +137,10 @@
     <input type="radio" name="status" id="disable" {{ $stores->status == 'disable' ? 'checked' : '' }} value="disable">&nbsp;<label for="disable">Disable</label>
     </div>
 
-    {{-- <div class="form-group">
+    <div class="form-group">
     <label for="authentication">Authentication</label><br>
     <input type="checkbox" name="authentication" id="authentication" {{ $stores->authentication == 'top_stores' ? 'checked' : '' }} value="top_stores">&nbsp;<label for="authentication">Top Store</label>
-    </div> --}}
+    </div>
     <div class="form-group">
     <label for="network">Network <span class="text-danger">*</span></label>
     <select name="network" id="network" class="form-control">

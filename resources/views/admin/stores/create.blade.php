@@ -128,10 +128,10 @@
                                             for="disable">Disable</label>
                                     </div>
 
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                     <label for="authentication">Authentication</label><br>
                                     <input type="checkbox" name="authentication" id="authentication" value="top_stores">&nbsp;<label for="authentication">Top Store</label>
-                                </div> --}}
+                                </div>
                                     <div class="form-group">
                                         <label for="network">Network <span class="text-danger">*</span></label>
                                         <select name="network" id="network" class="form-control">
