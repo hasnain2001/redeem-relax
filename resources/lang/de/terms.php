@@ -1,0 +1,33 @@
+<?php
+// resources/lang/de/terms.php
+return [
+    'title' => 'Allgemeine Geschäftsbedingungen',
+    'welcome_title' => 'Willkommen bei Coupons Arena',
+    'welcome_text' => 'Diese Allgemeinen Geschäftsbedingungen ("Bedingungen") regeln die Nutzung der Website von Coupons Arena (die "Website") und aller damit verbundenen Dienstleistungen, die von Coupons Arena ("Coupons Arena", "wir", "uns" oder "unser") bereitgestellt werden. Durch den Zugriff auf oder die Nutzung der Website stimmen Sie diesen Bedingungen zu. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie die Website bitte nicht.',
+    'user_agreement_title' => '1. Benutzervereinbarung',
+    'user_agreement_text' => 'Durch die Nutzung der Website stimmen Sie zu, diese Bedingungen sowie alle zusätzlichen Bedingungen, die wir Ihnen im Zusammenhang mit der Nutzung bestimmter Funktionen oder Dienstleistungen bereitstellen, einzuhalten.',
+    'use_of_website_title' => '2. Nutzung der Website',
+    'use_of_website_text' => 'Sie dürfen die Website nur für persönliche, nicht-kommerzielle Zwecke nutzen. Sie dürfen die Website nicht für illegale oder nicht autorisierte Zwecke nutzen. Sie stimmen zu, alle geltenden Gesetze, Vorschriften und Bestimmungen einzuhalten.',
+    'account_registration_title' => '3. Kontoanmeldung',
+    'account_registration_text' => 'Um auf bestimmte Funktionen der Website zugreifen zu können, müssen Sie sich möglicherweise für ein Konto registrieren. Bei der Registrierung eines Kontos stimmen Sie zu, genaue, aktuelle und vollständige Informationen über sich selbst anzugeben. Sie sind allein verantwortlich für die Vertraulichkeit Ihres Kontos und Passworts sowie für die Beschränkung des Zugriffs auf Ihr Konto. Sie stimmen zu, die Verantwortung für alle Aktivitäten zu übernehmen, die unter Ihrem Konto stattfinden.',
+    'content_title' => '4. Inhalte',
+    'content_text' => 'Sie erkennen an, dass alle Inhalte auf der Website, einschließlich, aber nicht beschränkt auf Text, Bilder, Grafiken, Logos und Software, Eigentum von Coupons Arena oder seinen Lizenzgebern sind und durch Urheberrechte, Markenrechte und andere geistige Eigentumsrechte geschützt sind. Sie dürfen die Inhalte auf der Website ohne ausdrückliche schriftliche Zustimmung von Coupons Arena weder ändern, reproduzieren, verbreiten noch abgeleitete Werke auf deren Grundlage erstellen.',
+    'user_submitted_content_title' => '5. Vom Benutzer eingereichte Inhalte',
+    'user_submitted_content_text' => 'Durch das Einreichen von Inhalten auf der Website, einschließlich, aber nicht beschränkt auf Bewertungen, Kommentare und Bewertungen, gewähren Sie Coupons Arena das nicht-exklusive, lizenzfreie, ewige, unwiderrufliche und vollständig unterlizenzierbare Recht, diese Inhalte weltweit in allen Medien zu nutzen, zu reproduzieren, zu ändern, anzupassen, zu veröffentlichen, zu übersetzen, abgeleitete Werke zu erstellen, zu verteilen und anzuzeigen.',
+    'links_to_third_party_websites_title' => '6. Links zu Websites von Drittanbietern',
+    'links_to_third_party_websites_text' => 'Die Website kann Links zu Websites oder Ressourcen von Drittanbietern enthalten. Sie erkennen an und stimmen zu, dass Coupons Arena nicht verantwortlich oder haftbar ist für: (i) die Verfügbarkeit oder Genauigkeit dieser Websites oder Ressourcen; oder (ii) die Inhalte, Produkte oder Dienstleistungen auf diesen Websites oder Ressourcen. Das Setzen von Links zu diesen Websites oder Ressourcen impliziert nicht, dass Coupons Arena diese Websites oder Ressourcen oder die dort verfügbaren Produkte oder Dienstleistungen billigt. Sie übernehmen die volle Verantwortung und das Risiko für die Nutzung dieser Websites oder Ressourcen.',
+    'termination_title' => '7. Beendigung',
+    'termination_text' => 'Coupons Arena kann Ihren Zugriff auf die Website jederzeit mit oder ohne Grund und mit oder ohne vorherige Benachrichtigung beenden oder aussetzen.',
+    'limitation_of_liability_title' => '8. Haftungsbeschränkung',
+    'limitation_of_liability_text' => 'In keinem Fall haftet Coupons Arena, ihre leitenden Angestellten, Direktoren, Mitarbeiter oder Vertreter Ihnen gegenüber für direkte, indirekte, zufällige, spezielle, strafrechtliche oder Folgeschäden, die sich aus (i) Fehlern, Ungenauigkeiten oder Unstimmigkeiten im Inhalt; (ii) Körperverletzung oder Sachschaden, gleich welcher Art, resultierend aus Ihrem Zugang zur Website und deren Nutzung; (iii) unbefugtem Zugriff auf oder Nutzung unserer gesicherten Server und/oder aller darin gespeicherten persönlichen Informationen; (iv) Unterbrechung oder Aussetzung der Übertragung zur oder von der Website; (v) Fehler, Viren, Trojaner oder ähnliches, die von Dritten an oder durch die Website übertragen werden; und/oder (vi) Fehler oder Auslassungen in Inhalten oder jeglichem Verlust oder Schaden, der durch die Nutzung von Inhalten auf der Website verursacht wird.',
+    'indemnification_title' => '9. Schadensersatz',
+    'indemnification_text' => 'Sie stimmen zu, Coupons Arena, ihre leitenden Angestellten, Direktoren, Mitarbeiter und Vertreter von allen Ansprüchen, Haftungen, Schäden, Verlusten und Kosten, einschließlich, aber nicht beschränkt auf angemessene rechtliche und buchhalterische Kosten, die aus oder im Zusammenhang mit Ihrem Zugriff auf oder Ihrer Nutzung der Website oder Ihrer Verletzung dieser Bedingungen entstehen, schadlos zu halten.',
+    'governing_law_title' => '10. Anwendbares Recht',
+    'governing_law_text' => 'Diese Bedingungen unterliegen den Gesetzen von [Ihre Gerichtsbarkeit] und sind gemäß diesen zu interpretieren, ohne Berücksichtigung der Grundsätze des Kollisionsrechts.',
+    'changes_to_terms_title' => '11. Änderungen der Bedingungen',
+    'changes_to_terms_text' => 'Coupons Arena behält sich das Recht vor, diese Bedingungen jederzeit zu ändern oder zu ersetzen. Wenn eine Änderung wesentlich ist, werden wir Sie mindestens 30 Tage im Voraus über die Änderung informieren. Was als wesentliche Änderung gilt, wird nach unserem eigenen Ermessen bestimmt.',
+    'contact_us_title' => '12. Kontaktieren Sie uns',
+    'contact_us_text' => 'Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter:',
+    'email' => 'E-Mail: contact@CouponsArena.com',
+];
+

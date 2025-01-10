@@ -1,12 +1,7 @@
 @extends('welcome')
-@section('title')
-
-@endsection
+@section('title','Redeem Relax - Best Deals and Discounts | Redeem Relax')
+@section('description','Find the best deals, discounts, and coupons on Redeem Relax. Save money on your favorite products from top brands.')
 @section('main-content')
-<!-- Custom CSS for Styling -->
- <style>
-.conatain{padding:5%}.coupon-card{transition:transform .5s ease-in-out,box-shadow .5s ease-in-out,border .5s ease-in-out}.coupon-card:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(0,0,0,.2);border:2px solid #151618}.coupon-image{width:100%;height:150px;object-fit:contain;padding:10px;background-color:#f9f9f9;border-bottom:1px solid #ddd}.no-image-placeholder{height:150px;display:flex;justify-content:center;align-items:center;background-color:#f8f9fa}.coupon-body{text-align:left;padding-left:12px;padding-right:12px}.btn{background-color:#060607;color:#fff}.btn:hover{background-color:#252f38;color:#fff}.modal-content{background:#f7f7f7}.title{color:#050607}.top-store-name{color:#1e1e1f;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:14px;padding:5px 5px 5px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.card-body-store{color:#1e1e1f;background-color:#dbdbdb;border-radius:5%;height:100%;padding:15px}@media (max-width:768px){.top-store-name{white-space:normal}}
- </style>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators custom-carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -63,23 +58,16 @@ $store = App\Models\Stores::where('slug', $coupon->store)->first();
 <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
 </svg>
 <span>{{ $coupon->store }}</span>
-
-
 </div>
-
-      @endif
+     @endif
 </div>
-
 <div class="mb-4 coupon-body py-3 ">
-
 <h6 class="text-left">{{ $coupon->name }}</h6>
 <span class="d-block mb-2 {{ \Carbon\Carbon::parse($coupon->ending_date)->isPast() ? 'text-danger' : 'text-muted' }}">
 Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 </span>
-
 <div class="d-grid gap-2">
-
-<a href="{{ $coupon->destination_url }}" target="_blank" class=" btn  btn-sm btn-dark btn-hover" id="getCode{{ $coupon->id }}" onclick="toggleCouponCode('{{ $coupon->id }}')">@lang('message.Get Code')</a>
+<a href="{{ $coupon->destination_url }}" target="_blank" class="getcode" id="getCode{{ $coupon->id }}" onclick="toggleCouponCode('{{ $coupon->id }}')">@lang('message.Get Code')</a>
 <div class="coupon-card d-flex flex-column">
     <span class="codeindex text-dark scratch" style="display: none;" id="codeIndex{{ $coupon->id }}">{{ $coupon->code }}</span>
     <button class="btn btn-info text-white btn-sm copy-btn btn-hover d-none mt-2" id="copyBtn{{ $coupon->id }}" onclick="copyCouponCode('{{ $coupon->id }}')">Copy Code</button>
@@ -132,7 +120,6 @@ $store = App\Models\Stores::where('slug', $coupon->store)->first();
 <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
 </svg>
 <span>{{ $coupon->store }}</span>
-
 </div>
 
 @endif
@@ -148,7 +135,7 @@ Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 </span>
 
 <div class="d-grid gap-2">
-<a href="{{ $coupon->destination_url }}" class="btn btn-dark" onclick="updateClickCount('{{ $coupon->id }}')" target="_blank">@lang('message.Get Deal')</a>
+<a href="{{ $coupon->destination_url }}" class="get" onclick="updateClickCount('{{ $coupon->id }}')" target="_blank">@lang('message.Get Deal')</a>
 <form method="post" action="{{ route('update.clicks') }}" id="clickForm">
     @csrf
     <input type="hidden" name="coupon_id" id="coupon_id">

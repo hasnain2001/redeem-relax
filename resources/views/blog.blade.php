@@ -31,70 +31,63 @@ header("X-Robots-Tag:index, follow");
 <br>
 
 <div class="container">
-    <div class="row">
-        <h1>Shopping Hacks & Savings Tips & Tricks</h1>
-        <div class="col-md-8">
-            
-            <!-- Blog posts -->
-            <div class="row">
-                @foreach ($blogs as $blog)
-                @if ($blog->slug)
-           <a href="{{ route('blog-details', ['slug' => Str::slug($blog->slug)]) }}" class="col-md-12 mb-4">
-
-
-                    @else
-                    <a href="javascript:;" class="btn btn-darkcol-md-12 mb-4 text-decoration-none">no Slug</a>
-                        @endif
-                        <div class="blog-post">
-                            <img src="{{ asset($blog->category_image) }}" alt="Blog Post Image" style="width: 1000px; height: 400px;">
-                            <div class="post-content">
-                                <h2>{{ $blog->title }}</h2>
-
-                                <!-- Add more fields as needed -->
-                            </div>
-                        </div>
-                    </a>
-                    @endforeach
-            </div>
-             <div class="container bg-light mt-3">
-          <div class="row mt-3 justify-content-end">
-            <div class="col-12">
-              {{ $blogs->links('pagination::bootstrap-4') }} </div>
+  <div class="row">
+    
+      <!-- Blogs Section -->
+      <div class="col-md-9">
+          <h1>Shopping Hacks & Savings Tips & Tricks</h1>
+          <div class="row">
+              @foreach ($blogs as $blog)
+              @php
+              $blogurl = $blog->slug
+                  ? route('blog-details', ['slug' => Str::slug($blog->slug)])
+                  : '#';
+              @endphp
+              <div class="col-md-4 mb-4">
+                  <div class="card h-100 shadow-sm">
+                      <img src="{{ asset($blog->category_image) }}" class="card-img-top" alt="Blog Post Image">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ $blog->title }}</h5>
+                          <p class="card-text">{{ Str::limit($blog->description, 100, '...') }}</p>
+                          <a href="{{ $blogurl }}" class="btn btn-dark rounded-pill">Read More</a>
+                      </div>
+                  </div>
+              </div>
+              @endforeach
           </div>
-        </div>
+      </div>
+        <!-- Stores Section -->
+        <div class="col-md-3">
+          <aside class="sidebar p-3 bg-light">
+              <!-- Sidebar Title -->
+              <h2 class="bold text-dark mb-3">Top Stores</h2>
+              <!-- Store Listings -->
+              <div class="row gx-2 gy-2">
+                  @foreach ($chunks as $store)
+                  <div class="col-12 mb-3">
+                      @php
+                      $storeurl = $store->slug
+                          ? route('store_details', ['slug' => Str::slug($store->slug)])
+                          : '#';
+                      @endphp
+                      <a href="{{ $storeurl }}" class="text-dark text-decoration-none d-flex align-items-center">
+                          <!-- Store Image -->
+                          <img src="{{ asset('uploads/stores/' . $store->store_image) }}" alt="{{ $store->name }}" class="me-2 shadow" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                          <!-- Store Name -->
+                          <p class="text-capitalize mb-0">{{ $store->name }}</p>
+                      </a>
+                  </div>
+                  @endforeach
+              </div>
+          </aside>
+      </div>
 
-        </div>
-
-     <div class="col-md-4">
-      <aside class="sidebar p-3 bg-light">
-        <!-- Sidebar Title -->
-        <h2 class="bold text-dark mb-3">Top Stores</h2>
-        <!-- Store Listings -->
-        <div class="row gx-2 gy-2">
-          @foreach ($chunks as $store)
-            <div class="col-md-6 col-sm-4 col-6">
-                @php
-
-                $storeurl = $store->slug
-                ? route('store_details', ['slug' => Str::slug($store->slug)])
-                : '#';
-                @endphp
-              <a href="{{$storeurl}}" class="text-dark text-decoration-none d-flex flex-column p-2">
-                <!-- Store Image -->
-                <img src="{{ asset('uploads/store/' . $store->store_image) }}" alt="{{ $store->name }}" class="mb-2  shadow" style="width: 100px; height: 100px; object-fit: cover;">
-                <!-- Store Name -->
-                <p class="text-capitalize">{{ $store->name }}</p>
-              </a>
-            </div>
-          @endforeach
-        </div>
-      </aside>
-    </div>
-    </div>
+  </div>
 </div>
 
+
  
-  <x-alert/>
+  <x-footer/>
 
 
 

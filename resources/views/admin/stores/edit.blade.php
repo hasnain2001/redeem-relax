@@ -68,34 +68,7 @@
     <label for="destination_url">Destination URL <span class="text-danger">*</span></label>
     <input  type="url" class="form-control" name="destination_url" id="destination_url" value="{{ $stores->destination_url }} " required>
     </div>
-    <div class="form-group">
-    <label for="category">Category <span class="text-danger">*</span></label>
-    <select name="category" id="category" class="form-control">
-    <option value="" disabled selected>{{ $stores->category }}</option>
-    @foreach($categories as $category)
-    <option value="{{ $category->slug }}">{{ $category->slug }}</option>
-    @endforeach
-    </select>
-
-
-    </div>
-    <div class="form-group">
-    <label for="lang">Language <span class="text-danger">*</span></label>
-    <select name="language_id" id="lang" class="form-control">
-        <option disabled>--Select Langs--</option>
-        
-        <!-- Loop through languages and set the selected option -->
-        @foreach ($langs as $lang)
-            <option value="{{ $lang->id }}" 
-                {{ isset($stores->language_id) && $stores->language_id == $lang->id ? 'selected' : '' }}>
-                {{ $lang->code }}
-            </option>
-        @endforeach
-    </select>
     
-
-
-    </div>
     <div class="form-group">
     <label for="name">Meta Title<span class="text-danger">*</span></label>
     @error('title')
@@ -142,6 +115,34 @@
     <label for="authentication">Authentication</label><br>
     <input type="checkbox" name="authentication" id="authentication" {{ $stores->authentication == 'top_stores' ? 'checked' : '' }} value="top_stores">&nbsp;<label for="authentication">Top Store</label>
     </div>
+    <div class="form-group">
+        <label for="category">Category <span class="text-danger">*</span></label>
+        <select name="category" id="category" class="form-control">
+        <option value="" disabled selected>{{ $stores->category }}</option>
+        @foreach($categories as $category)
+        <option value="{{ $category->slug }}">{{ $category->slug }}</option>
+        @endforeach
+        </select>
+    
+    
+        </div>
+        <div class="form-group">
+        <label for="lang">Language <span class="text-danger">*</span></label>
+        <select name="language_id" id="lang" class="form-control">
+            <option disabled>--Select Langs--</option>
+            
+            <!-- Loop through languages and set the selected option -->
+            @foreach ($langs as $lang)
+                <option value="{{ $lang->id }}" 
+                    {{ isset($stores->language_id) && $stores->language_id == $lang->id ? 'selected' : '' }}>
+                    {{ $lang->code }}
+                </option>
+            @endforeach
+        </select>
+        
+    
+    
+        </div>
     <div class="form-group">
     <label for="network">Network <span class="text-danger">*</span></label>
     <select name="network" id="network" class="form-control">
@@ -232,7 +233,7 @@
         // Function to check if the slug exists
         function checkSlugExistence(slug) {
             $.ajax({
-                url: '{{ route('admin.check.slug') }}',
+                url: '{{ route('check.slug') }}',
                 method: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}',

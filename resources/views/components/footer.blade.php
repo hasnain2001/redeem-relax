@@ -3,111 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer Example</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        footer {
-            background-color: rgb(116, 31, 161);
-            color: white;
-            padding: 40px 0;
-        }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-made-by a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .footer-made-by a:hover {
-            color: #ddd;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="{{ asset('cssfile/footer.css') }}">
 </head>
 <body>
+    <br>
+    <footer>
+        <div class="footer-container">
+            <div class="col-md-1  col-sm-2text-center">
+                <a href="{{ url(app()->getLocale() . '/') }}">
+                    <img src="{{ asset('images/Untitled (1).png') }}" class="footerimg " alt="Logo">
+                </a>
+            </div>
 
-<footer>
-  <div class="container">
-    <div class="row text-center text-md-start">
-      <!-- Logo and About Us -->
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <a class="navbar-brand d-block mb-3" href="/">
-          <img src="{{ asset('front/assets/images/logo-footer.jpg') }}" width="150" alt="Honeycombdeals Logo">
-        </a>
-        <p>Welcome to Honeycombdeals! Discover deals, promo codes, comparisons, and money-saving insights for savvy shoppers.</p>
-        <a href="{{ url('about') }}" class="btn btn-link text-white p-0">About Us</a>
-      </div>
+            <div class="col-md-8 offset-md-1 ">
+                <div class="footer-right">
+                    <div class="social-icons">
+                        <p class="subscribe mt-2">@lang('message.Subscribe to our Newsletter')</p>
+                        <form class="mt-2">
+                            @csrf
+                            <div class="input-group">
+                                <input type="text" name="email" class="form-control" placeholder="@lang('message.Enter Your Email')" required>
+                                <button type="submit" class="btn btn-dark text-white  ">@lang('message.Subscribe ')</button>
+                            </div>
+                        </form>
+                    </div>
 
-      <!-- Privacy Policy and Terms -->
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-3">Policies</h5>
-        <ul>
-          <li><a href="{{ url('privacy') }}">Privacy Policy</a></li>
-          <li><a href="{{ url('term-and-condition') }}">Terms and Conditions</a></li>
-        </ul>
-      </div>
+<div class="footer-links">
+    <a href="{{url(app()->getLocale() . '/about') }}">@lang('message.About-Us')</a>
 
-      <!-- Contact Us -->
-      <div class="col-md-4 col-sm-6">
-        <h5 class="text-uppercase mb-3">Contact Us</h5>
-        <ul>
-          <li><a href="mailto:honeycombdeal@gmail.com">honeycombdeal@gmail.com</a></li>
-          <li><a href="mailto:contact@honeycombdeals.com">contact@honeycombdeals.com</a></li>
-        </ul>
-      </div>
-    </div>
+    <a href="{{ url(app()->getLocale() . '/privacy') }}">@lang('message.Privacy Policy') </a>
+    <a href="{{ url(app()->getLocale() . '/terms-and-condition') }}">@lang('message.Terms and Condition')</a>
+    {{-- <a href="{{ url(app()->getLocale() . '/cookies')  }}">@lang('message.Cookies Policy')</a> --}}
+    <a href="{{ url(app()->getLocale() . '/imprint')  }}">@lang('message.Imprint')</a>
+</div>
+                    <p>@lang('message.Copyright &copy; 2024 couponsarena.com - All rights reserved')</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Footer Bottom -->
-    <div class="row mt-4 pt-4 border-top">
-      <div class="col text-center">
-        <p class="mb-0">&copy; 2024 Honeycombdeals. All Rights Reserved.</p>
-        <p class="mt-2"><a href="#" target="_blank" class="text-white">Developed by O.B.M TECH</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-<script>
-  $(document).ready(function() {
-    $('#searchInput').autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: '{{ route("search") }}',
-                dataType: 'json',
-                data: {
-                    query: request.term
-                },
-                success: function(data) {
-                    response(data.stores);
-                }
-            });
-        },
-        minLength:1 
-    });
-  });
-</script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

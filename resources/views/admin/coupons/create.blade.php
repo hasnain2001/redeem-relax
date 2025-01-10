@@ -81,42 +81,44 @@
             <div class="col-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="lang">Language <span class="text-danger">*</span></label>
+                    
+                        <div class="form-group d-flex align-items-center">
+                            <label for="top_coupons" class="me-2">Top Coupons Code <span class="text-danger">*</span></label>
+                            <div class="d-flex">
+                                <input type="radio" name="top_coupons" id="top_0" value="0" onclick="updateTopCoupons(0)">
+                                <label for="top_0" class="me-3">0</label>
                         
-                                <select name="language_id" id="language_id" class="form-control"required>
-                                <option disabled selected>--Select Langs--</option>
-                                @foreach ($langs as $lang)
-                                    <option value="{{ $lang->id }}">{{ $lang->name }}</option>
-                                @endforeach
-                            </select>
-                            
+                                <input type="radio" name="top_coupons" id="top_1" value="1" onclick="updateTopCoupons(1)">
+                                <label for="top_1" class="me-3">1</label>
+                        
+                                <input type="radio" name="top_coupons" id="top_2" value="2" onclick="updateTopCoupons(2)">
+                                <label for="top_2" class="me-3">2</label>
+                        
+                                <input type="radio" name="top_coupons" id="top_3" value="3" onclick="updateTopCoupons(3)">
+                                <label for="top_3" class="me-3">3</label>
+                        
+                                <input type="radio" name="top_coupons" id="top_4" value="4" onclick="updateTopCoupons(4)">
+                                <label for="top_4" class="me-3">4</label>
+                        
+                                <input type="radio" name="top_coupons" id="top_5" value="5" onclick="updateTopCoupons(5)">
+                                <label for="top_5" class="me-3">5</label>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="top_coupons">Top Coupons Code <span class="text-danger">*</span></label><br>
-                            <input type="radio" name="top_coupons" id="top_0" value="0" onclick="updateTopCoupons(0)">
-                            <label for="top_0">0</label>
-
-                            <input type="radio" name="top_coupons" id="top_1" value="1" onclick="updateTopCoupons(1)">
-                            <label for="top_1">1</label>
-
-                            <input type="radio" name="top_coupons" id="top_2" value="2" onclick="updateTopCoupons(2)">
-                            <label for="top_2">2</label>
-
-                            <input type="radio" name="top_coupons" id="top_3" value="3" onclick="updateTopCoupons(3)">
-                            <label for="top_3">3</label>
-
-                            <input type="radio" name="top_coupons" id="top_4" value="4" onclick="updateTopCoupons(4)">
-                            <label for="top_4">4</label>
-
-                            <input type="radio" name="top_coupons" id="top_5" value="5" onclick="updateTopCoupons(5)">
-                            <label for="top_5">5</label>
+                        
+                        <div class="form-group d-flex align-items-center">
+                            <label for="status" class="me-2">Status <span class="text-danger">*</span></label>
+                            <div class="d-flex">
+                                <div class="form-check me-3">
+                                    <input type="radio" class="form-check-input" name="status" id="enable" value="enable" required>
+                                    <label class="form-check-label" for="enable">Enable</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="status" id="disable" value="disable" required>
+                                    <label class="form-check-label" for="disable">Disable</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="status">Status <span class="text-danger">*</span></label><br>
-                            <input type="radio" name="status" id="enable" value="enable" required>&nbsp;<label for="enable">Enable</label>
-                            <input type="radio" name="status" id="disable" value="disable" required>&nbsp;<label for="disable">Disable</label>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="store">Store <span class="text-danger">*</span></label>
                             <select name="store" id="store" class="form-control" required >
@@ -125,6 +127,17 @@
                                     <option value="{{ $store->slug }}">{{ $store->slug }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lang">Language <span class="text-danger">*</span></label>
+                        
+                                <select name="language_id" id="language_id" class="form-control"required>
+                                <option disabled selected>--Select Langs--</option>
+                                @foreach ($langs as $lang)
+                                    <option value="{{ $lang->id }}">{{ $lang->code }}</option>
+                                @endforeach
+                            </select>
+                            
                         </div>
  <div class="form-group">
   <label for="authentication">Authentication</label><br>

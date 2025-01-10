@@ -89,7 +89,7 @@ header("X-Robots-Tag:index, follow");
                         : '#';
                         @endphp
                         <a href="{{$storeurl }}" class="text-decoration-none">
-                            <img class="card-img-top" src="{{ $store->store_image ? asset('uploads/store/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" alt="{{ $store->name }}" style="width:100%; height:200px; object-fit: cover;">
+                            <img class="card-img-top" src="{{ $store->store_image ? asset('uploads/stores/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" alt="{{ $store->name }}" style="width:100%; height:200px; object-fit: cover;">
                             <div class="card-body text-center">
                                 <h5 class="card-title text-dark">{{ $store->name ?: "Title not found" }}</h5>
                                 @if (!$store->store_image)
@@ -108,7 +108,7 @@ header("X-Robots-Tag:index, follow");
 
 
 
-     <x-alert/>
+     <x-footer/>
 
 
 

@@ -14,21 +14,21 @@
 </head>
 <body>
 
-    <header class="header-container">
+    <header class="header-container sticky-top">
         <!-- Logo section -->
         <div class="logo-container d-sm-block d-none">
-            <a class="navbar-brand" href="/">
-                <img src="{{ asset('images/logodesktop.png') }}" alt="Logo" class="logo" loading="lazy">
+            <a class="navbar-brand" href="{{ url(app()->getLocale() . '/') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo" loading="lazy">
             </a>
         </div>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
-                <a class="d-block d-sm-none " href="/">
-                    <img src="{{ asset('images/mb-logo.png') }}" alt="Logo" class="mb-logo" loading="lazy">
+                <a class="d-block d-sm-none " href="{{ url(app()->getLocale() . '/') }}">
+                    <img src="{{ asset('images/Untitled (1).png') }}" alt="Logo" class="mb-logo" loading="lazy">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -38,6 +38,10 @@
                             <a class="nav-link active" href="{{ url(app()->getLocale() . '/') }}">@lang('message.home')</a>
 
                         </li>
+<li class="nav-item">
+<a class="nav-link active" href="{{ url(app()->getLocale() . '/stores') }}">Stores</a>
+
+</li>
                         <li class="nav-item dropdown mega-dropdown">
                             <a class="nav-link dropdown-toggle" href="{{ route('categories') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">@lang('message.category')</a>
                             <div class="dropdown-menu mega-menu p-3" aria-labelledby="navbarDropdown">
@@ -75,7 +79,7 @@
                     <button class="searchbtn" type="submit"><i class="fas fa-search"></i></button>
                 </form>
 
-                {{-- <li class="nav-item dropdown list-unstyled ">
+                <li class="nav-item dropdown list-unstyled ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ strtoupper($currentLang) }}
                     </a>
@@ -88,7 +92,7 @@
                             </li>
                         @endforeach
                     </ul>
-                </li> --}}
+                </li>
             </div>
         </div>
         </nav>

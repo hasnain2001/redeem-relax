@@ -157,7 +157,7 @@ class CategoriesController extends Controller
             'category_image' => isset($CategoryImage) ? $CategoryImage : "No Category Image",
         ]);
 
-        return redirect()->back()->with('success', 'Category Updated Successfully');
+        return redirect()->route('admin.category')->with('success', 'Category Updated Successfully');
     }
 
     public function delete_category($id) {

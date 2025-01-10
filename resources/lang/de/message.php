@@ -1,0 +1,51 @@
+<?php
+return [
+    'home' => 'Startseite',
+    'contact' => 'Kontaktieren Sie uns',
+    'news' => 'Nachrichten',
+    'category' => 'Kategorien',
+    'search' => 'Hier suchen',
+    'Trending Promo Codes To Save Everyday' => 'Aktuelle Rabatt- und Aktionscodes',
+    'Top Deals Today' => 'Aktuelle Angebote heute',
+    'Popular Stores Today' => 'Beliebte Geschäfte heute',
+    'Used By' => 'Verwendet von',
+    'Get Deal' => 'Angebot holen',
+    'Get Code' => 'Code holen',
+
+    // for footer
+    'Subscribe to our Newsletter' => 'Abonnieren Sie unseren Newsletter',
+    'Enter Your Email' => 'Geben Sie Ihre E-Mail ein',
+    'Subscribe ' => 'Abonnieren',
+    'About-Us' => 'Über uns',
+    'Privacy Policy' => 'Datenschutzbestimmungen',
+    'Terms and Condition' => 'Geschäftsbedingungen',
+    'Cookies Policy' => 'Cookie-Richtlinie',
+    'Imprint' => 'Impressum',
+    'Copyright &copy; 2024 couponsarena.com - All rights reserved' => 'Urheberrecht &copy; 2024 couponsarena.com - Alle Rechte vorbehalten',
+
+    // for contact page
+    'contact-us ' => 'Kontaktieren Sie uns',
+    'First Name' => 'Vorname',
+    'Last Name' => 'Nachname',
+    'Email Address' => 'E-Mail-Adresse',
+    'Website Name' => 'Website-Name',
+    'Write your message' => 'Schreiben Sie Ihre Nachricht',
+    'Submit' => 'Absenden',
+
+  // for cookies page
+    'cookies_title' => 'Cookies-Richtlinie',
+    'info_use' => 'Unser Hauptzweck der Verwendung von Cookies ist die Verbesserung von CouponsArena. Durch die weitere Nutzung unserer Website stimmen Sie unseren Nutzungsbedingungen und der Cookie-Richtlinie zu.',
+    'what_are_cookies' => 'Cookies sind kleine Informationen, die in Form einer Textdatei über unsere Website auf den Computer eines Internetnutzers gelangen, um zu erinnern, wer Sie sind. Diese werden von fast jeder Hauptwebseite verwendet.',
+    'security_privacy' => 'Wir verwenden Cookies auf unserer Plattform und stellen sicher, dass unsere Webseite keine Ihrer Informationen preisgibt.',
+    'registration_subscription' => 'Um sicherzustellen, dass Sie eine großartige Erfahrung beim Abonnieren haben, verwenden wir Cookies, um die Schritte zu bestätigen, die Sie durchlaufen.',
+    'personalisation' => 'CouponsArena nutzt Cookies, um Ihr Verhalten zu identifizieren und Ihre Kaufentscheidungen zu schätzen.',
+    'analytics' => 'Wir nutzen Cookies, um unsere Nutzer zu identifizieren und deren Standortdaten zu erfahren, was uns hilft, CouponsArena zu verbessern.',
+    'third_party_cookies' => 'Wir arbeiten mit verschiedenen Drittanbieter-Cookies, die helfen, maßgeschneiderte Informationen und Werbung bereitzustellen.',
+    'heading-1' => 'Informationen zu unserer Verwendung von Cookies',
+    'heading-2' => 'Was sind Cookies?',
+    'heading-3' => 'Sicherheit und Datenschutz',
+    'heading-4' => 'Registrierung und Abonnement',
+    'heading-5' => 'Personalisierung der Kunden',
+    'heading-6' => 'Statistiken und Analytik',
+    'heading-7' => 'Teilen von Drittanbieter-Cookies',
+];
