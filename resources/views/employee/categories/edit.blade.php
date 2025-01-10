@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('employee.master')
 @section('title')
     Update
 @endsection
@@ -22,7 +22,7 @@
                     <b>{{ session('success') }}</b>
                 </div>
             @endif
-            <form name="UpdateCategory" id="UpdateCategory" method="POST" enctype="multipart/form-data" action="{{ route('admin.category.update', $category->id) }}">
+            <form name="UpdateCategory" id="UpdateCategory" method="POST" enctype="multipart/form-data" action="{{ route('employee.category.update', $category->id) }}">
                 @csrf
                 <div class="row">
                     <div class="col-6">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="{{ route('admin.category') }}" class="btn btn-secondary">Cancel</a>
+                        <a href="{{ route('employee.category') }}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </div>
             </form>

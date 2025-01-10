@@ -1,0 +1,203 @@
+.card-hover,
+.coupon-card {
+    flex-direction: column;
+    display: flex;
+}
+
+.container,
+.custom-font {
+    font-family: viga, sans-serif;
+}
+.container {
+    font-weight: 500;
+    color: #868686;
+}
+.card-hover {
+    border: 2px solid #ddd;
+    transition: border-color 0.3s;
+    height: 100%;
+    justify-content: space-between;
+}
+.card-hover:hover {
+    border-color: #7c3ac7;
+}
+
+.btn-hover {
+
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-hover:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+.coupon-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin: auto;
+}
+
+.coupon-card {
+    height: 100%;
+}
+
+
+.coupon-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttm {
+    width: 10px;
+    height: 5px;
+    padding: 5px;
+}
+.copy-btn {
+    margin-top: 10px;
+}
+.copy-confirmation {
+    margin-top: 30px;
+    color: green;
+}
+.custom-font {
+    font-weight: 700;
+    color: #878787;
+}
+.des-font,
+.used {
+    font-family: "Open Sans", sans-serif;
+}
+.des-font {
+    font-weight: 500;
+    color: #999;
+}
+.used {
+    font-weight: 800;
+    font-size: 12px;
+}
+.btn-sort a {
+    background-color: #7c3ac7;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.btn-sort a:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+.btn-sort a:hover {
+    background-color: purple;
+    color: black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(0, 0, 0, 0.5);
+}
+.get {
+    width: 120px;
+    background: linear-gradient(to right, #2421ac, #b4adf3);
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 25px 25px 25px 25px ;
+    text-decoration: none;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    margin-right: 10px; /* Add margin between buttons */
+    display: inline-block;
+    font-size: 16px;
+}
+
+.get:hover {
+    background: linear-gradient(to right, #2421ac, #3222be);
+    color: wheat;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(60, 58, 199, 0.7), 0 0 30px rgba(60, 58, 199, 0.5);
+}
+.getcode {
+    background: linear-gradient(to right, #2421ac, #b4adf3);
+    color: #ffffff;
+    padding: 5px 15px ;
+    border-radius: 25px 25px 25px 25px ;
+    text-decoration: none;
+
+
+    margin-right: 10px; /* Add margin between buttons */
+    display: inline-block;
+    font-size: 16px;
+}
+
+.getcode:hover {
+    background: linear-gradient(to right, #b4adf3, #2421ac);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(87, 96, 175, 0.5);
+}
+.ending-date{
+    font-size: 10px;
+    color: rgb(184, 177, 177);
+}
+.coupon-description{
+    font-size: 15px;
+    color: rgb(134, 123, 123);
+}
+
+
+.store-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease;
+}
+
+.store-link:hover {
+    background-color: #205eb9;
+    color: #101011;
+}
+
+/* General styles for the coupon image */
+.stores-img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+}
+
+/* Mobile-specific styling */
+@media (max-width: 768px) {
+    /* Stack items vertically in a column on mobile */
+    .card-body {
+        display: flex;
+        flex-direction: column; /* Stack image and content vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    /* Ensure the image is centered above the text on mobile */
+    .coupon-card img.stores-img {
+        margin-bottom: 10px; /* Add spacing between image and content */
+    }
+
+    /* Flex-grow for text and buttons to align vertically */
+    .flex-grow-1 {
+        text-align: left; /* Text is aligned to the left */
+    }
+
+    /* Adjust button placement for mobile */
+    .getcode,
+    .get {
+        align-self: flex-start;
+        margin-top: 10px;
+    }
+
+    .coupon-card {
+        flex-direction: column; /* Ensure the entire card is displayed as a column */
+        justify-content: flex-start;
+    }
+}

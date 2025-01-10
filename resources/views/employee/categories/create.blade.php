@@ -42,7 +42,7 @@
                                     <input type="text" class="form-control" name="title" id="title" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="title">Category Url/slug <span class="text-danger">* only text input</span></label>
+                                    <label for="slug">Category Url/slug <span class="text-danger">* only text input</span></label>
                                     <input type="text" class="form-control" name="slug" id="slug"  required>
 
                                 </div>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="category_image">Category Image <span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="category_image" id="category_image">
+                                    <input type="file" class="form-control" name="category_image" id="category_image" required>
                                 </div>
 
                             </div>

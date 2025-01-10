@@ -1,0 +1,26 @@
+
+.error-container {
+    text-align: center;
+
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.error-container h1 {
+    font-size: 6rem;
+    color: #343a40;
+}
+.error-container h2 {
+    font-size: 1.5rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+.error-container a {
+
+    text-decoration: none;
+    color: #007bff;
+}
+.error-container a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

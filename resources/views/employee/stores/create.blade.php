@@ -70,28 +70,7 @@
                                         <input type="url" class="form-control" name="destination_url"
                                             id="destination_url" required>
                                     </div>
-                                    <div class="form-group">
-
-                                        <div class="form-group">
-                                            <label for="category">Category <span class="text-danger">*</span></label>
-                                            <select name="category" id="category" class="form-control">
-                                                <option value="" disabled selected>--Select Category--</option>
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->slug }}">{{ $category->slug }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                    </div>
-                                <div class="form-group">
-                                            <label for="lang">Language <span class="text-danger">*</span></label>
-                                            <select name="language_id" id="lang" class="form-control" required>
-                                                <option disabled selected>--Select Langs--</option>
-                                                @foreach ($langs as $lang)
-                                                    <option value="{{ $lang->id }}">{{ $lang->code }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                                    
                                     
                                     <div class="form-group">
                                         <label for="name">Meta Title<span class="text-danger">*</span></label>
@@ -133,6 +112,28 @@
                                     <label for="authentication">Authentication</label><br>
                                     <input type="checkbox" name="authentication" id="authentication" value="top_stores">&nbsp;<label for="authentication">Top Store</label>
                                 </div> --}}
+                                <div class="form-group">
+
+                                    <div class="form-group">
+                                        <label for="category">Category <span class="text-danger">*</span></label>
+                                        <select name="category" id="category" class="form-control">
+                                            <option value="" disabled selected>--Select Category--</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->slug }}">{{ $category->slug }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                </div>
+                            <div class="form-group">
+                                        <label for="lang">Language <span class="text-danger">*</span></label>
+                                        <select name="language_id" id="lang" class="form-control" required>
+                                            <option disabled selected>--Select Langs--</option>
+                                            @foreach ($langs as $lang)
+                                                <option value="{{ $lang->id }}">{{ $lang->code }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label for="network">Network <span class="text-danger">*</span></label>
                                         <select name="network" id="network" class="form-control">

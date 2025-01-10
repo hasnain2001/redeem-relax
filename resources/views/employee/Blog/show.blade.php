@@ -61,6 +61,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Blog Image</th>
+                        <th scope="col">Created  At</th>
+                        <th scope="col">Updated At </th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -80,6 +82,16 @@
                                 @endif
                             </td>
                             <td>
+                            <span class="  text-dark" data-bs-toggle="tooltip" title="{{ $blog->created_at->setTimezone('Asia/Karachi')->format('l, F j, Y h:i A') }}">
+                                {{ $blog->created_at->setTimezone('Asia/Karachi')->format('M d, Y h:i A') }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class=" text-dark" data-bs-toggle="tooltip" title="{{ $blog->updated_at->setTimezone('Asia/Karachi')->format('l, F j, Y h:i A') }}">
+                                {{ $blog->updated_at->setTimezone('Asia/Karachi')->format('M d, Y h:i A') }}
+                            </span>
+                        </td>
+                            <td>
                                 <a href="{{ route('employee.blog.edit', $blog->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                 <form action="{{ route('employee.blog.delete', $blog->id) }}" method="POST" class="d-inline">
                                     @csrf
@@ -98,6 +110,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Blog Image</th>
+                        <th scope="col">Created  At</th>
+                        <th scope="col">Updated At </th>
                         <th scope="col">Action</th>
                     </tr>
                 </tfoot>

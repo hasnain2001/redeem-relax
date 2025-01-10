@@ -36,11 +36,11 @@
     @endif
     <form name="CreateCoupon" id="CreateCoupon" method="POST" action="{{ route('employee.coupon.store') }}">
         @csrf
-        <select class="form-select" aria-label="Default select example" onchange="navigateToPage(this)">
+        {{-- <select class="form-select" aria-label="Default select example" onchange="navigateToPage(this)">
             <option selected>Select Deal/Code</option>
             <option value="{{ route('employee.coupon.code') }}">Code</option>
             <option value="{{ route('employee.coupon.create') }}">Deal</option>
-        </select>
+        </select> --}}
 
 
 
@@ -57,10 +57,16 @@
                             <textarea name="description" id="description" class="form-control" cols="20" rows="3" style="resize: none;" ></textarea>
 
                         </div>
-                       {{-- <div class="form-group">
-                                    <label for="code">Code</label>
-                                    <input type="text" class="form-control" name="code" id="code">
-                                </div> --}}
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="toggleCodeCheckbox" onchange="toggleCodeInput(this)">
+                            <label class="form-check-label" for="toggleCodeCheckbox">Enable Code Input</label>
+                        </div>
+                        
+                        <div class="form-group" id="codeInputGroup" style="display: none;">
+                            <label for="code">Code</label>
+                            <input type="text" class="form-control" name="code" id="code" >
+                        </div>
+                      
                         <div class="form-group">
                             <label for="destination_url">Destination URL <span class="text-danger">*</span></label>
                             <input type="url" class="form-control" name="destination_url" id="destination_url" required>
@@ -118,15 +124,32 @@
                             <input type="radio" name="status" id="enable" value="enable" required>&nbsp;<label for="enable">Enable</label>
                             <input type="radio" name="status" id="disable" value="disable" required>&nbsp;<label for="disable">Disable</label>
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="authentication">Authentication</label><br>
-                            <input type="checkbox" name="authentication[]" id="never_expire" value="never_expire">&nbsp;<label for="never_expire">Never Expire</label><br>
-                            <input type="checkbox" name="authentication[]" id="featured" value="featured">&nbsp;<label for="featured">Featured</label><br>
-                            <input type="checkbox" name="authentication[]" id="free_shipping" value="free_shipping">&nbsp;<label for="free_shipping">Free Shipping</label><br>
-                            <input type="checkbox" name="authentication[]" id="coupon_code" value="coupon_code">&nbsp;<label for="coupon_code">Coupon Code</label><br>
-                            <input type="checkbox" name="authentication[]" id="top_deals" value="top_deals">&nbsp;<label for="top_deals">Top Deals</label><br>
-                            <input type="checkbox" name="authentication[]" id="valentine" value="valentine">&nbsp;<label for="valentine">Valentine</label>
-                        </div> --}}
+                    <div class="form-group">
+  <label for="authentication">Authentication</label><br>
+  
+  <input type="radio" name="authentication" id="never_expire" value="never_expire">
+  <label for="never_expire">Never Expire</label>
+  
+  <input type="radio" name="authentication" id="featured" value="featured">
+  <label for="featured">Featured</label>
+  
+  <input type="radio" name="authentication" id="free_shipping" value="free_shipping">
+  <label for="free_shipping">Free Shipping</label>
+  
+  <input type="radio" name="authentication" id="coupon_code" value="coupon_code">
+  <label for="coupon_code">Coupon Code</label>
+  
+  <input type="radio" name="authentication" id="top_deals" value="top_deals">
+  <label for="top_deals">Top Deals</label>
+  
+  <input type="radio" name="authentication" id="valentine" value="valentine">
+  <label for="valentine">Valentine</label>
+  
+  <input type="radio" name="authentication" id="other" value="other">
+  <label for="other">Other</label>
+  
+  <input type="text" name="authentication_other" id="authentication_other" placeholder="Specify other" style="display: none;">
+</div>
                         <div class="form-group">
                             <label for="store">Store <span class="text-danger">*</span></label>
                             <select name="store" id="store" class="form-control" required>
@@ -151,13 +174,29 @@
     </section>
 </div>
 <script>
-    function navigateToPage(selectElement) {
-        var url = selectElement.value;
-        if (url) {
-            window.location.href = url; // Redirect to the selected URL
+    const radios = document.querySelectorAll('input[name="authentication"]');
+    const otherInput = document.getElementById('authentication_other');
+  
+    radios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.id === 'other') {
+          otherInput.style.display = 'inline';
+        } else {
+          otherInput.style.display = 'none';
+          otherInput.value = ''; // Clear input when "Other" is not selected
         }
-    }
-</script>
-
+      });
+    });
+      function toggleCodeInput(checkboxElement) {
+          const codeInputGroup = document.getElementById('codeInputGroup');
+          
+          if (checkboxElement.checked) {
+              codeInputGroup.style.display = 'block'; // Show the input field
+          } else {
+              codeInputGroup.style.display = 'none'; // Hide the input field
+          }
+      }
+  </script>
+  
 
 @endsection

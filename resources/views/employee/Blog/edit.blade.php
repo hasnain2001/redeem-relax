@@ -35,7 +35,7 @@
             <form name="UpdateCategory" id="UpdateCategory" method="POST" enctype="multipart/form-data" action="{{ route('employee.Blog.update', $blog->id) }}">
                 @csrf
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
@@ -85,7 +85,7 @@
 
                     <div class="col-12">
                         <button type="reset" class="btn btn-secondary text-white">Reset</button>
-                        <a href="{{ route('employee.blog.show')}}" class="btn btn-danger">cancel</a>
+                        <a href="{{ route('employee.blog.index')}}" class="btn btn-danger">cancel</a>
                     </div>
                 </div>
             </form>
