@@ -69,8 +69,9 @@
 </head>
 <body>
     <div class="overlay"></div>
-    <div class="container  justify-content-center ">
-        <div class="card p-4 form-container">
+<div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="col-md-5">
+            <div class="card p-4 form-container">
             <div class="card-header">
                 <h4>Register</h4>
             </div>
@@ -121,6 +122,7 @@
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     </div>
 

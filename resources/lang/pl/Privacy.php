@@ -1,8 +1,8 @@
 <?php
 return [
     'bread-crumb' => 'Polityka prywatności',
-    'heading-1' => 'Ochrona Twojej prywatności w Coupons Arena',
-    'p-1' => 'W Coupons Arena Twoja prywatność i bezpieczeństwo są naszymi głównymi priorytetami. Niniejsza Polityka prywatności wyjaśnia, jak zbieramy, używamy i chronimy Twoje informacje, gdy korzystasz z naszych usług. Jeśli nie zgadzasz się z naszymi politykami, prosimy o powstrzymanie się od korzystania z Coupons Arena.',
+    'heading-1' => 'Ochrona Twojej prywatności w Redeem relax ',
+    'p-1' => 'W Redeem relax  Twoja prywatność i bezpieczeństwo są naszymi głównymi priorytetami. Niniejsza Polityka prywatności wyjaśnia, jak zbieramy, używamy i chronimy Twoje informacje, gdy korzystasz z naszych usług. Jeśli nie zgadzasz się z naszymi politykami, prosimy o powstrzymanie się od korzystania z Redeem relax .',
     'span-1' => 'Ostatnia aktualizacja: październik 2024',
     'heading-2' => 'Kluczowe punkty dla Twojej wygody',
     'span-2' => ' Informacje, które zbieramy',
@@ -33,6 +33,6 @@ return [
     'p-12' => 'Nie odpowiadamy na sygnały DNT (nie ma obowiązującego standardu).',
     'p-13' => 'Rezydenci Kalifornii mają określone prawa do prywatności. Szczegóły w pełnej polityce.',
     'p-14' => 'Możemy zaktualizować naszą politykę zgodnie z wymaganiami prawa.',
-    'p-15' => 'Masz pytania? Skontaktuj się z nami pod adresem contact@CouponsArena.com.',
+    'p-15' => 'Masz pytania? Skontaktuj się z nami pod adresem redeemrelax@gmail.com.',
     'p-16' => 'Przeglądaj, aktualizuj lub usuń swoje dane za pomocą naszego formularza wniosku o dostęp do danych.',
 ];

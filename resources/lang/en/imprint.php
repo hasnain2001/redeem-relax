@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'owner' => 'Coupons Arena Inc.',
+    'owner' => 'Redeem relax  Inc.',
     'address' => '3000 Hoffman Dr, Plano, Tx USA',
     'email_us' => 'Contact Us:',
     'contact_email' => ' contact@couponsArena.com',

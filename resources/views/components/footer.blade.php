@@ -23,8 +23,9 @@
                         <form class="mt-2">
                             @csrf
                             <div class="input-group">
+                                
                                 <input type="text" name="email" class="form-control" placeholder="@lang('message.Enter Your Email')" required>
-                                <button type="submit" class="btn btn-dark text-white  ">@lang('message.Subscribe ')</button>
+                                <button type="submit" class="subscribehbtn">@lang('message.Subscribe ')</button>
                             </div>
                         </form>
                     </div>
@@ -37,7 +38,7 @@
     {{-- <a href="{{ url(app()->getLocale() . '/cookies')  }}">@lang('message.Cookies Policy')</a> --}}
     <a href="{{ url(app()->getLocale() . '/imprint')  }}">@lang('message.Imprint')</a>
 </div>
-                    <p>@lang('message.Copyright &copy; 2024 couponsarena.com - All rights reserved')</p>
+                    <p>@lang('message.Copyright &copy; 2024 redeemrelax.com - All rights reserved')</p>
                 </div>
             </div>
         </div>

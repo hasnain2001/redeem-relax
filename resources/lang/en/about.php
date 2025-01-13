@@ -3,7 +3,7 @@
 return [
 'heading-1' => 'Welcome to Coupons Arena: Your Shopping Guru',
 
-'heading-2' => ' Tired of paying full price? We hear you! Coupons Arena is your trusted companion in the world of discounts, deals, promo codes, bundle offers, and invaluable money-saving tips. We are more than just a website; we empower you to be a smart and informed shopper, making your shopping sprees more fulfilling and budget-friendly.',
+'heading-2' => ' Tired of paying full price? We hear you! Redeem relaxis your trusted companion in the world of discounts, deals, promo codes, bundle offers, and invaluable money-saving tips. We are more than just a website; we empower you to be a smart and informed shopper, making your shopping sprees more fulfilling and budget-friendly.',
 'heading-3' => 'Our Vision: Empowering Smarter Shopping',
 'heading-4'=>'Our mission is clear: to provide a one-stop destination where shoppers can find a diverse range of coupons that cater to their unique needs and preferences. We believe that saving money should be effortless, exciting, and rewarding. By connecting consumers with exclusive offers and partnering with top retailers, we aim to redefine the way people approach online shopping.',
 'heading-5'=>'Unleash Your Savings Potential with Coupons Arena',
@@ -18,7 +18,7 @@ return [
 'heading-13' => '4.Product Comparisons',
 'heading-14' => 'Making informed decisions is crucial when shopping. We offer detailed product comparisons to help you choose the best option that fits your needs and budget.',
 'heading-15' => '',
-'heading-16'=>'Why Make Coupons Arena Your Shopping Ally?',
+'heading-16'=>'Why Make Redeem relaxYour Shopping Ally?',
 'heading-17' => '',
 'Access promotions you wont find anywhere else' =>'Trustworthy Information',
 'Personalized Recommendations:' => 'Diverse Range of Deals',

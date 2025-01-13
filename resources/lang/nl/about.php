@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'heading-1' => 'Welkom bij Coupons Arena: Jouw Shopping Guru',
+    'heading-1' => 'Welkom bij Redeem relax : Jouw Shopping Guru',
 
-    'heading-2' => 'Moe van het betalen van de volle prijs? Wij begrijpen je! Coupons Arena is jouw vertrouwde partner in de wereld van kortingen, deals, promotiecodes, bundelaanbiedingen en waardevolle bespaartips. Wij zijn meer dan alleen een website; wij helpen jou om een slimme en geïnformeerde shopper te worden, zodat je shopuitjes meer voldoening geven en vriendelijker zijn voor je portemonnee.',
+    'heading-2' => 'Moe van het betalen van de volle prijs? Wij begrijpen je! Redeem relax  is jouw vertrouwde partner in de wereld van kortingen, deals, promotiecodes, bundelaanbiedingen en waardevolle bespaartips. Wij zijn meer dan alleen een website; wij helpen jou om een slimme en geïnformeerde shopper te worden, zodat je shopuitjes meer voldoening geven en vriendelijker zijn voor je portemonnee.',
     'heading-3' => 'Onze Visie: Slimmer Winkelen Mogelijk Maken',
     'heading-4' => 'Onze missie is duidelijk: een one-stop bestemming bieden waar shoppers een breed scala aan coupons kunnen vinden die aansluiten bij hun unieke behoeften en voorkeuren. Wij geloven dat geld besparen moeiteloos, leuk en lonend moet zijn. Door consumenten te verbinden met exclusieve aanbiedingen en samen te werken met topretailers, willen we de manier waarop mensen online winkelen opnieuw definiëren.',
-    'heading-5' => 'Ontketen je Besparingspotentieel met Coupons Arena',
+    'heading-5' => 'Ontketen je Besparingspotentieel met Redeem relax ',
     'heading-6' => '',
     'heading-7' => 'Kortingscodes',
     'heading-8' => 'Wij verzamelen en bieden een breed scala aan kortingscodes van je favoriete merken en retailers.',
     'heading-9' => '2. Deals en Promoties',
-    'heading-10' => 'Ontdek de nieuwste en populairste deals op Coupons Arena. Bespaar veel op alles wat je nodig hebt en leuk vindt.',
+    'heading-10' => 'Ontdek de nieuwste en populairste deals op Redeem relax . Bespaar veel op alles wat je nodig hebt en leuk vindt.',
     'heading-11' => '3. Bundelaanbiedingen',
 
     'heading-12' => 'Bespaar nog meer door onze bundelaanbiedingen te verkennen. Vind fantastische deals op complementaire producten.',
     'heading-13' => '4. Productvergelijkingen',
     'heading-14' => 'Goed geïnformeerde keuzes maken is cruciaal bij het winkelen. Wij bieden gedetailleerde productvergelijkingen om je te helpen de beste optie te kiezen die bij jouw behoeften en budget past.',
     'heading-15' => '',
-    'heading-16' => 'Waarom Coupons Arena Jouw Shoppingpartner Moet Zijn?',
+    'heading-16' => 'Waarom Redeem relax  Jouw Shoppingpartner Moet Zijn?',
     'heading-17' => '',
     'Access promotions you wont find anywhere else' => 'Betrouwbare Informatie',
     'Personalized Recommendations:' => 'Diverse Deals',

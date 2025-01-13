@@ -6,7 +6,7 @@ header("X-Robots-Tag: index, follow");
 <head>
 
     <!-- Meta and SEO tags -->
-    <link rel="icon" href="{{ asset('front/assets/images/icons.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,10 +40,7 @@ header("X-Robots-Tag: index, follow");
 <x-footer/>
 
 <script >
-
-
-
-        // Handle clicks on coupon activation
+       // Handle clicks on coupon activation
         function countAndHandleClicks(couponId) {
             // Send AJAX request to update click count
             $.ajax({

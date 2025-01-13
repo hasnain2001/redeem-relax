@@ -6,20 +6,20 @@ header("X-Robots-Tag:index, follow");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Honeycomb Deals Blog - Smart Shopping Tips & Tricks</title>
+  <title>redeem relax Blog - Smart Shopping Tips & Tricks</title>
 
     <!-- Your custom meta tags go here -->
-     <meta name="description" content="Find the best deals, discounts, and coupons on Honeycomb Deals. Save money on your favorite products from top brands.">
+     <meta name="description" content="Find the best deals, discounts, and coupons on redeem relax. Save money on your favorite products from top brands.">
 
  <meta name="keywords" content="deals, discounts, coupons, savings, affiliate marketing">
 
   <meta name="author" content="John Doe">
  <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://honeycombdeals.com/blog">
+<link rel="canonical" href="{{ url()->current() }}">
 
 
-   <link rel="icon" href="{{ asset('front/assets/images/icons.png') }}" type="image/x-icon">
+   <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
 
     <link rel="stylesheet" href="{{ asset('front/assets/css/blog.css') }}">

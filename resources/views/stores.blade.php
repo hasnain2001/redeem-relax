@@ -14,7 +14,7 @@ header("X-Robots-Tag:index, follow");
 
     <!-- Styles -->
      <meta name="description" content="Find the best deals, discounts, and coupons on CouponsArena. Save money on your favorite products from top brands.">
-<link rel="canonical" href="https://CouponsArena.com/stores">
+<link rel="canonical" href="{{ url()->current() }}">
 
 <link rel="shortcut icon" href="{{ asset('images/favicon.png')}}" type="image/x-icon">
 

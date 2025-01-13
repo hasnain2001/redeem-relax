@@ -162,7 +162,7 @@ margin-top: 20px;
                   <span class="me-3">
                     <i class="fas fa-envelope text-primary fs-4"></i>@lang('Privacy.span-15')
                   </span>
-                  <p class="ms-auto mb-0">@lang('Privacy.p-15') <a href="mailto: contact@CouponsArena.com"> contact@CouponsArena.com</a>.</p>
+                  <p class="ms-auto mb-0">@lang('Privacy.p-15') <a href="mailto: redeemrelax@gmail.com">redeemrelax@gmail.com</a>.</p>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                   <span class="me-3">

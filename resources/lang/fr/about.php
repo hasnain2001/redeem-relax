@@ -1,29 +1,29 @@
 <?php
 
 return [
-    'heading-1' => 'Bienvenue sur Coupons Arena : Votre Guru du Shopping',
+    'heading-1' => 'Bienvenue sur Redeem relax  : Votre Guru du Shopping',
 
-    'heading-2' => ' Fatigué de payer le prix fort ? Nous vous comprenons ! Coupons Arena est votre compagnon de confiance dans le monde des réductions, bons plans, codes promo, offres groupées et astuces précieuses pour économiser. Nous sommes plus qu’un simple site web ; nous vous donnons le pouvoir d’être un acheteur intelligent et informé, rendant vos sessions shopping plus enrichissantes et économiques.',
+    'heading-2' => ' Fatigué de payer le prix fort ? Nous vous comprenons ! Redeem relax  est votre compagnon de confiance dans le monde des réductions, bons plans, codes promo, offres groupées et astuces précieuses pour économiser. Nous sommes plus qu’un simple site web ; nous vous donnons le pouvoir d’être un acheteur intelligent et informé, rendant vos sessions shopping plus enrichissantes et économiques.',
 
     'heading-3' => 'Notre Vision : Encourager un Shopping Plus Intelligent',
 
     'heading-4' => 'Notre mission est claire : offrir une destination unique où les acheteurs peuvent trouver une large gamme de coupons adaptés à leurs besoins et préférences uniques. Nous croyons que faire des économies doit être simple, excitant et gratifiant. En connectant les consommateurs avec des offres exclusives et en collaborant avec les meilleurs détaillants, nous visons à redéfinir la façon dont les gens abordent le shopping en ligne.',
 
-    'heading-5' => 'Libérez Votre Potentiel d’Économie avec Coupons Arena',
+    'heading-5' => 'Libérez Votre Potentiel d’Économie avec Redeem relax ',
 
     'heading-6' => '',
 
     'heading-7' => 'Codes de Réduction',
     'heading-8' => 'Nous sélectionnons et fournissons une large gamme de codes de réduction de vos marques et détaillants préférés.',
     'heading-9' => '2. Offres et Promotions',
-    'heading-10' => 'Découvrez les offres les plus récentes et les plus chaudes sur Coupons Arena. Économisez gros sur tout ce dont vous avez besoin et que vous aimez.',
+    'heading-10' => 'Découvrez les offres les plus récentes et les plus chaudes sur Redeem relax . Économisez gros sur tout ce dont vous avez besoin et que vous aimez.',
     'heading-11' => '3. Offres Groupées',
 
     'heading-12' => 'Économisez encore plus en explorant nos offres groupées. Trouvez des offres fantastiques sur des produits complémentaires.',
     'heading-13' => '4. Comparaisons de Produits',
     'heading-14' => 'Prendre des décisions éclairées est essentiel lors des achats. Nous offrons des comparaisons détaillées de produits pour vous aider à choisir la meilleure option correspondant à vos besoins et à votre budget.',
     'heading-15' => '',
-    'heading-16' => 'Pourquoi Faire de Coupons Arena Votre Allié Shopping ?',
+    'heading-16' => 'Pourquoi Faire de Redeem relax  Votre Allié Shopping ?',
     'heading-17' => '',
     'Access promotions you wont find anywhere else' => 'Informations Fiables',
     'Personalized Recommendations:' => 'Large Gamme d’Offres',

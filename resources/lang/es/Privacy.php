@@ -33,6 +33,6 @@ return [
     'p-12' => 'No respondemos a señales DNT (no existe un estándar).',
     'p-13' => 'Los residentes de California tienen derechos de privacidad específicos. Ver detalles en la política completa.',
     'p-14' => 'Podemos actualizar nuestra política según lo exija la ley.',
-    'p-15' => '¿Tienes preguntas? Contáctanos en contact@CouponsArena.com.',
+    'p-15' => '¿Tienes preguntas? Contáctanos en redeemrelax@gmail.com.',
     'p-16' => 'Revisa, actualiza o elimina tus datos usando nuestro formulario de solicitud de acceso a datos.',
 ];

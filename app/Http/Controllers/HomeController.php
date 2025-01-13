@@ -100,18 +100,20 @@ class HomeController extends Controller
     {
         $languageCode = $lang ?? 'en';
         app()->setLocale($languageCode);
+    
         // Paginate blogs as usual
         $blogs = Blog::paginate(5);
     
-        // Check if a language code is provided
         if ($lang) {
             // Find the language by the code in the URL
             $language = Language::where('code', $lang)->first();
     
             if ($language) {
-                // Get stores filtered by language and paginate
+                // Get stores filtered by language and sort by latest
                 $chunks = Stores::where('language_id', $language->id)
-                    ->paginate(25)
+                    ->orderBy('created_at', 'desc') // Sort by created_at
+                    ->take(25) // Limit the results to 25
+                    ->get() // Retrieve the data
                     ->map(function($store) use ($language) {
                         // Append language code to the store's URL
                         $store->url_with_language = url($language->code . '/blog/' . $store->id);
@@ -122,15 +124,19 @@ class HomeController extends Controller
             }
         } else {
             // Default to English or a fallback if no language code is provided
-            $chunks = Stores::paginate(25)->map(function($store) {
-                $language = Language::find($store->language_id);
-                $store->url_with_language = $language ? url($language->code . '/blog/' . $store->id) : url('en/store/' . $store->id);
-                return $store;
-            });
+            $chunks = Stores::orderBy('created_at', 'desc') // Sort by created_at
+                ->take(25) // Limit to 25 stores
+                ->get() // Retrieve the data
+                ->map(function($store) {
+                    $language = Language::find($store->language_id);
+                    $store->url_with_language = $language ? url($language->code . '/blog/' . $store->id) : url('en/store/' . $store->id);
+                    return $store;
+                });
         }
     
         return view('blog', compact('blogs', 'chunks'));
     }
+    
     
     
     
@@ -263,7 +269,7 @@ class HomeController extends Controller
         }
     
         // Fetch related coupons and stores
-        $stores = Stores::where('category', $title)->paginate(12);
+        $stores = Stores::where('category', $title)->orderBy('created_at','desc')->get();
     
     
         return view('related_category', compact('category', 'stores' ));

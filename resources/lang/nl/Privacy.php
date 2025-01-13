@@ -1,8 +1,8 @@
 <?php
 return [
     'bread-crumb' => 'Privacybeleid',
-    'heading-1' => 'Uw privacy beschermen bij Coupons Arena',
-    'p-1' => 'Bij Coupons Arena staan uw privacy en veiligheid voorop. Dit privacybeleid legt uit hoe wij uw informatie verzamelen, gebruiken en beschermen wanneer u onze diensten gebruikt. Als u niet akkoord gaat met ons beleid, maak dan geen gebruik van Coupons Arena.',
+    'heading-1' => 'Uw privacy beschermen bij Redeem relax ',
+    'p-1' => 'Bij Redeem relax  staan uw privacy en veiligheid voorop. Dit privacybeleid legt uit hoe wij uw informatie verzamelen, gebruiken en beschermen wanneer u onze diensten gebruikt. Als u niet akkoord gaat met ons beleid, maak dan geen gebruik van Redeem relax .',
     'span-1' => 'Laatst bijgewerkt: oktober 2024',
     'heading-2' => 'Belangrijke punten voor uw gemak',
     'span-2' => ' Informatie die we verzamelen',
@@ -33,6 +33,6 @@ return [
     'p-12' => 'We reageren niet op DNT-signalen (er bestaat geen standaard).',
     'p-13' => 'Inwoners van Californië hebben specifieke privacyrechten. Zie details in het volledige beleid.',
     'p-14' => 'We kunnen ons beleid bijwerken zoals vereist door de wet.',
-    'p-15' => 'Vragen? Neem contact met ons op via contact@CouponsArena.com.',
+    'p-15' => 'Vragen? Neem contact met ons op via redeemrelax@gmail.com.',
     'p-16' => 'Bekijk, werk bij of verwijder uw gegevens met behulp van ons verzoekformulier voor gegevensinzage.',
 ];

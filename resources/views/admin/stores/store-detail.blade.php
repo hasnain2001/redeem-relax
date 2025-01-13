@@ -74,7 +74,7 @@
                     <span>Deal</span>
                                    @endif
                 </td>
-                <td>{{ $store->language->name ??'No language' }}</td>
+                <td>{{ $store->language->code ??'No language' }}</td>
                 <td>
                    @if ($coupon->status == "disable")
                         <i class="fa fa-fw fa-times-circle" style="color: blue;"></i>

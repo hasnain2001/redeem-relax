@@ -28,7 +28,7 @@
                 <a class="d-block d-sm-none " href="{{ url(app()->getLocale() . '/') }}">
                     <img src="{{ asset('images/Untitled (1).png') }}" alt="Logo" class="mb-logo" loading="lazy">
                 </a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -105,6 +105,26 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
+ </script>
+  <script>
+    let navbar = document.getElementById('navbar');
+    var scrollPrev = window.pageYOffset;
+    window.onscroll = function () {
+        var scrollCur = window.pageYOffset;
+        if (scrollPrev > scrollCur) {
+            navbar.style.top = "0";
+        } else {
+            navbar.style.top = "-90px";
+        }
+        scrollPrev = scrollCur;
+    };
+
+    document.querySelectorAll('#navbar ul li').forEach((item) => {
+        item.addEventListener('click', function () {
+            document.querySelector('#navbar ul li.active').classList.remove('active');
+            this.classList.add('active');
+        });
+    });
  </script>
 <script>
     // Add event listener for the select dropdown

@@ -12,7 +12,7 @@ use App\Http\Middleware\RoleMiddleware;
 use App\Http\Middleware\Normalization;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 
 // Admin routes
 Route::middleware([RoleMiddleware::class])->group(function () {
@@ -27,11 +27,10 @@ Route::middleware([RoleMiddleware::class])->group(function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-
-
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/employee.php';
 require __DIR__.'/home.php';
+require __DIR__.'/migration.php';
 
 

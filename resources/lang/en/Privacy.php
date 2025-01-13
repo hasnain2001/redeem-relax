@@ -1,8 +1,8 @@
 <?php
 return [
     'bread-crumb' => 'Privacy Policy',
-    'heading-1' => 'Protecting Your Privacy at Coupons Arena',
-    'p-1' => 'At Coupons Arena, your privacy and security are our top priorities. This Privacy Policy explains how we collect, use, and protect your information when you use our services. If you disagree with our policies, please refrain from using Coupons Arena.',
+    'heading-1' => 'Protecting Your Privacy at Redeem relax ',
+    'p-1' => 'At Redeem relax , your privacy and security are our top priorities. This Privacy Policy explains how we collect, use, and protect your information when you use our services. If you disagree with our policies, please refrain from using Redeem relax .',
     'span-1' => 'Last Updated: October 2024',
     'heading-2' => 'Key Points for Your Convenience',
     'span-2' => ' Information We Collect',
@@ -33,6 +33,6 @@ return [
     'p-12' => 'We dont respond to DNT signals (no standard exists).',
     'p-13' => 'California residents have specific privacy rights. See details in the full policy.',
     'p-14' => 'We may update our policy as required by law.',
-    'p-15' => 'Have questions? Contact us at contact@CouponsArena.com.',
+    'p-15' => 'Have questions? Contact us at redeemrelax@gmail.com.',
     'p-16' => 'Review, update, or delete your data using our data subject access request form.',
 ];

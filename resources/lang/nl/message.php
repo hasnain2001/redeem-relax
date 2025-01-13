@@ -21,7 +21,7 @@ return [
     'Terms and Condition' => 'Algemene voorwaarden',
     'Cookies Policy' => 'Cookiebeleid',
     'Imprint' => 'Afdruk',
-    'Copyright &copy; 2024 couponsarena.com - All rights reserved' => 'Copyright &copy; 2024 couponsarena.com - Alle rechten voorbehouden',
+    'Copyright &copy; 2024 redeemrelax.com - All rights reserved' => 'Copyright &copy; 2024 redeemrelax.com - Alle rechten voorbehouden',
 
    // for contact page
    'contact-us ' => 'Contáctanos',

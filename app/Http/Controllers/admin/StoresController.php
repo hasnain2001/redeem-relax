@@ -47,7 +47,7 @@ public function StoreDetails($name)
     // In your StoreController
     public function store()
     {
-        $stores = Stores::with('language')->select('id', 'name', 'slug', 'status', 'created_at', 'updated_at', 'store_image', 'network', 'category')
+        $stores = Stores::with('language')->select('id', 'name', 'slug', 'status', 'created_at', 'updated_at', 'store_image', 'network', 'category',)
         ->orderBy('created_at', 'desc')
         ->get();
 

@@ -1,8 +1,8 @@
 <?php
 return [
     'bread-crumb' => 'Datenschutzrichtlinie',
-    'heading-1' => 'Schutz Ihrer Privatsphäre bei Coupons Arena',
-    'p-1' => 'Bei Coupons Arena stehen Ihre Privatsphäre und Sicherheit an erster Stelle. Diese Datenschutzrichtlinie erklärt, wie wir Ihre Informationen sammeln, verwenden und schützen, wenn Sie unsere Dienste nutzen. Wenn Sie mit unseren Richtlinien nicht einverstanden sind, nutzen Sie Coupons Arena bitte nicht.',
+    'heading-1' => 'Schutz Ihrer Privatsphäre bei Redeem relax ',
+    'p-1' => 'Bei Redeem relax  stehen Ihre Privatsphäre und Sicherheit an erster Stelle. Diese Datenschutzrichtlinie erklärt, wie wir Ihre Informationen sammeln, verwenden und schützen, wenn Sie unsere Dienste nutzen. Wenn Sie mit unseren Richtlinien nicht einverstanden sind, nutzen Sie Redeem relax  bitte nicht.',
     'span-1' => 'Zuletzt aktualisiert: Oktober 2024',
     'heading-2' => 'Wichtige Punkte für Ihre Bequemlichkeit',
     'span-2' => ' Informationen, die wir sammeln',
@@ -33,6 +33,6 @@ return [
     'p-12' => 'Wir reagieren nicht auf DNT-Signale (es gibt keinen Standard).',
     'p-13' => 'Einwohner Kaliforniens haben spezifische Datenschutzrechte. Details finden Sie in der vollständigen Richtlinie.',
     'p-14' => 'Wir können unsere Richtlinie gemäß den gesetzlichen Anforderungen aktualisieren.',
-    'p-15' => 'Fragen? Kontaktieren Sie uns unter contact@CouponsArena.com.',
+    'p-15' => 'Fragen? Kontaktieren Sie uns unter redeemrelax@gmail.com.',
     'p-16' => 'Überprüfen, aktualisieren oder löschen Sie Ihre Daten mit unserem Formular für Datenzugriffsanfragen.',
 ];

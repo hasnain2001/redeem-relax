@@ -8,7 +8,7 @@ header("X-Robots-Tag:index, follow");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @if(isset($store) && is_object($store))
   <title>{!! $store->title !!}</title>
-  <link rel="canonical" href="https://couponsarena.com/store/{{ Str::slug($store->name) }}">
+  <link rel="canonical" href="{{ url()->current() }}">
   <meta name="description" content="{!! $store->meta_description !!}">
   <meta name="keywords" content="{!! $store->meta_keyword !!}">
   <meta name="author" content="Najeeb">
@@ -16,6 +16,20 @@ header("X-Robots-Tag:index, follow");
   @else
   <link rel="canonical" href="https://vouchmenot.com/stores">
   @endif
+  <!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ $store->name }}" />
+<meta property="og:description" content="Check out amazing deals from {{ $store->description }}!" />
+<meta property="og:image" content="{{ asset('uploads/stores/' . $store->store_image) }}" />
+<meta property="og:url" content="{{ url()->current() }}" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $store->name }}">
+<meta name="twitter:description" content="Check out amazing deals from {{ $store->description }}!">
+<meta name="twitter:image" content="{{ asset('images/store-logos/' . $store->logo) }}">
+<meta name="twitter:url" content="{{ url()->current() }}">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 <link rel="stylesheet" href="{{asset('cssfile/storedetail.css')}}">
@@ -119,37 +133,55 @@ header("X-Robots-Tag:index, follow");
             <div class="store-info-card card shadow-sm p-3 mb-5 bg-white rounded" style="max-width: 300px;">
                 <h4 class="text-center mb-4">Filter By Voucher Codes</h4>
                 <div class="d-flex flex-column">
-                    <div class="btn-group" role="group">
-                        <a href="{{ url()->current() }}" class="btn btn-primary mb-2">All</a>
-                        <a href="{{ url()->current() }}?sort=codes" class="btn btn-primary mb-2">Codes</a>
-                        <a href="{{ url()->current() }}?sort=deals" class="btn btn-primary mb-2">Online Sales</a>
+                    <div class="btn-group " role="group">
+                        <div class="btn-sort">   <a href="{{ url()->current() }}" class="mb-2">All</a>
+                            <a href="{{ url()->current() }}?sort=codes" class=" mb-2">Codes</a>
+                            <a href="{{ url()->current() }}?sort=deals" class=" mb-2">Online Sales</a></div>
+                     
                     </div>
                 </div>
             </div>
 
-            <!-- Social Share Section -->
-            <div class="social-container widget-col-item">
-                <p class="widget-title">Share</p>
-                <div class="social-box1 footer-social">
-                    <ul class="list-inline d-flex justify-content-center">
-                        <li class="list-inline-item">
-                            <a class="btn btn-primary btn-sm rounded-circle" href="http://www.facebook.com/sharer.php?u=https://Couponsarena.com/{{ Str::slug($store->name) }}-us" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn btn-info btn-sm rounded-circle" href="https://twitter.com/share?url=https://Couponsarena.com/{{ Str::slug($store->name) }}-us" target="_blank"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn btn-danger btn-sm rounded-circle" href="https://pinterest.com/pin/create/button/?url=https://Couponsarena.com/{{ Str::slug($store->name) }}-us" target="_blank"><i class="fab fa-pinterest"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn btn-danger btn-sm rounded-circle" href="https://www.instagram.com/?url=https://Couponsarena.com/{{ Str::slug($store->name) }}-us" target="_blank"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn btn-success btn-sm rounded-circle" href="https://api.whatsapp.com/send?text=https://Couponsarena.com/{{ Str::slug($store->name) }}-us" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+           <!-- Social Share Section -->
+<div class="social-container widget-col-item">
+    <p class="widget-title">Share</p>
+    <div class="social-box1 footer-social">
+        <ul class="list-inline d-flex justify-content-center">
+            <!-- Facebook Share -->
+            <li class="list-inline-item">
+                <a class="btn btn-primary btn-sm rounded-circle" 
+                   href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" 
+                   target="_blank">
+                   <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <!-- Twitter Share -->
+            <li class="list-inline-item">
+                <a class="btn btn-info btn-sm rounded-circle" 
+                   href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text=Check out amazing deals from {{ $store->name }}!" 
+                   target="_blank">
+                   <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <!-- Pinterest Share -->
+            <li class="list-inline-item">
+                <a class="btn btn-danger btn-sm rounded-circle" 
+                   href="https://pinterest.com/pin/create/button/?url={{ urlencode(url()->current()) }}&media={{ asset('images/store-logos/' . $store->logo) }}&description=Check out amazing deals from {{ $store->name }}!" 
+                   target="_blank">
+                   <i class="fab fa-pinterest"></i>
+                </a>
+            </li>
+            <!-- WhatsApp Share -->
+            <li class="list-inline-item">
+                <a class="btn btn-success btn-sm rounded-circle" 
+                   href="https://api.whatsapp.com/send?text=Check out amazing deals from {{ $store->name }}! {{ urlencode(url()->current()) }}" 
+                   target="_blank">
+                   <i class="fab fa-whatsapp"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 
             <!-- Related Stores Section -->
             <div class="store-info-card card shadow-sm p-3 mb-5 bg-white rounded">

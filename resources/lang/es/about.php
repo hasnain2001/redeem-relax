@@ -1,24 +1,24 @@
 <?php
 
 return [
-    'heading-1' => 'Bienvenido a Coupons Arena: Tu Gurú de Compras',
+    'heading-1' => 'Bienvenido a Redeem relax : Tu Gurú de Compras',
 
-    'heading-2' => '¿Cansado de pagar el precio completo? ¡Te entendemos! Coupons Arena es tu compañero de confianza en el mundo de los descuentos, ofertas, códigos promocionales, paquetes y consejos invaluables para ahorrar dinero. Somos más que una página web; te ayudamos a convertirte en un comprador inteligente e informado, haciendo que tus compras sean más satisfactorias y amigables con tu presupuesto.',
+    'heading-2' => '¿Cansado de pagar el precio completo? ¡Te entendemos! Redeem relax  es tu compañero de confianza en el mundo de los descuentos, ofertas, códigos promocionales, paquetes y consejos invaluables para ahorrar dinero. Somos más que una página web; te ayudamos a convertirte en un comprador inteligente e informado, haciendo que tus compras sean más satisfactorias y amigables con tu presupuesto.',
     'heading-3' => 'Nuestra Visión: Empoderar Compras Inteligentes',
     'heading-4' => 'Nuestra misión es clara: proporcionar un destino único donde los compradores puedan encontrar una amplia gama de cupones que se adapten a sus necesidades y preferencias únicas. Creemos que ahorrar dinero debe ser fácil, emocionante y gratificante. Al conectar a los consumidores con ofertas exclusivas y asociarnos con los mejores minoristas, buscamos redefinir la forma en que las personas compran en línea.',
-    'heading-5' => 'Libera Tu Potencial de Ahorro con Coupons Arena',
+    'heading-5' => 'Libera Tu Potencial de Ahorro con Redeem relax ',
     'heading-6' => '',
     'heading-7' => 'Códigos de Descuento',
     'heading-8' => 'Reunimos y ofrecemos una amplia gama de códigos de descuento de tus marcas y minoristas favoritos.',
     'heading-9' => '2. Ofertas y Promociones',
-    'heading-10' => 'Descubre las ofertas más recientes y populares en Coupons Arena. Ahorra en grande en todo lo que necesitas y amas.',
+    'heading-10' => 'Descubre las ofertas más recientes y populares en Redeem relax . Ahorra en grande en todo lo que necesitas y amas.',
     'heading-11' => '3. Paquetes',
 
     'heading-12' => 'Ahorra aún más explorando nuestras ofertas de paquetes. Encuentra ofertas fantásticas en productos complementarios.',
     'heading-13' => '4. Comparaciones de Productos',
     'heading-14' => 'Tomar decisiones informadas es crucial al comprar. Ofrecemos comparaciones detalladas de productos para ayudarte a elegir la mejor opción que se ajuste a tus necesidades y presupuesto.',
     'heading-15' => '',
-    'heading-16' => '¿Por Qué Hacer de Coupons Arena Tu Aliado en Compras?',
+    'heading-16' => '¿Por Qué Hacer de Redeem relax  Tu Aliado en Compras?',
     'heading-17' => '',
     'Access promotions you wont find anywhere else' => 'Información Confiable',
     'Personalized Recommendations:' => 'Variedad de Ofertas',

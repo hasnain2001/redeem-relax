@@ -75,7 +75,7 @@
           @endif
                         </td>
                         
-                        {{-- <td>{{ $store->language->name ??'No language' }}</td> --}}
+                        {{-- <td>{{ $store->language->code ??'No language' }}</td> --}}
 
 
                               

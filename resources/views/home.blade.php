@@ -1,6 +1,7 @@
 @extends('welcome')
 @section('title','Redeem Relax - Best Deals and Discounts | Redeem Relax')
 @section('description','Find the best deals, discounts, and coupons on Redeem Relax. Save money on your favorite products from top brands.')
+@section('keywords','deals, discounts, coupons, savings, affiliate marketing, promo codes, cashback, online shopping, special offers, vouchers, best prices, holiday sales, seasonal discounts, gift cards, price comparison, money-saving tips')
 @section('main-content')
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators custom-carousel-indicators">
@@ -32,10 +33,12 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 <div class="conatain">
 <div class="row mb-4">
 <div class="col-12">
-<h2 class="title text-center">@lang('message.Trending Promo Codes To Save Everyday')</h2>
+<h1 class="title text-center ">@lang('message.Trending Promo Codes To Save Everyday')</h1>
+<hr>
 </div>
 </div>
 <div class="row coupon-grid g-4">
@@ -49,9 +52,12 @@ $store = App\Models\Stores::where('slug', $coupon->store)->first();
 
 <div class="coupon-header text-center">
 @if ($store && $store->store_image)
-<img src="{{ asset('uploads/stores/' . $store->store_image) }}"
-  alt="{{ $store->name }} Image" class="coupon-image img-fluid"
-  loading="lazy">
+<a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}">
+    <img src="{{ asset('uploads/stores/' . $store->store_image) }}"
+        alt="{{ $store->name }} Image" class="coupon-image img-fluid"
+        loading="lazy">
+</a>
+  
 @else
 <div class="no-image-placeholder bg-light text-center py-4">
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
@@ -98,6 +104,7 @@ Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 <div class="row mb-4">
 <div class="col-12">
 <h2 class="title text-center">@lang('message.Top Deals Today')</h2>
+<hr>
 </div>
 </div>
 <div class="row coupon-grid g-4">
@@ -111,9 +118,12 @@ $store = App\Models\Stores::where('slug', $coupon->store)->first();
 
 <div class="coupon-header text-center">
 @if ($store && $store->store_image)
-<img src="{{ asset('uploads/stores/' . $store->store_image) }}"
-  alt="{{ $store->name }} Image" class="coupon-image img-fluid"
-  loading="lazy">
+<a href=""></a>
+<a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}">
+    <img src="{{ asset('uploads/stores/' . $store->store_image) }}"
+        alt="{{ $store->name }} Image" class="coupon-image img-fluid"
+        loading="lazy">
+</a>
 @else
 <div class="no-image-placeholder bg-light text-center py-4">
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">

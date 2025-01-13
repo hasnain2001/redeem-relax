@@ -27,7 +27,7 @@
     transition: background-color 0.3s, color 0.3s;
 }
 .btn-hover:hover {
-    background-color: #0056b3;
+    background-color: #9500b3;
     color: #fff;
 }
 .coupon-image-container {
@@ -77,14 +77,14 @@
     font-size: 12px;
 }
 .btn-sort a {
-    background-color: #7c3ac7;
+    background-color: #601fac;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 10px ;
     border-radius: 5px;
     text-decoration: none;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-    margin-right: 10px; /* Add margin between buttons */
+    /* margin-right: ; Add margin between buttons */
 }
 
 .btn-sort a:last-child {
@@ -98,11 +98,11 @@
 }
 .get {
     width: 120px;
-    background: linear-gradient(to right, #2421ac, #b4adf3);
-    color: #ffffff;
+    background: linear-gradient(to right, #7a1bb4, #ab47bc); /* Enhanced contrast */
+    color: #ffffff; /* High contrast for better readability */
     text-align: center;
     padding: 5px 15px;
-    border-radius: 25px 25px 25px 25px ;
+    border-radius: 25px;
     text-decoration: none;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -112,30 +112,36 @@
 }
 
 .get:hover {
-    background: linear-gradient(to right, #2421ac, #3222be);
-    color: wheat;
+    background: linear-gradient(to right, #8e24aa, #d500f9); /* Brighter hover gradient */
+    color: #ffffff; /* Ensure text remains readable */
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(60, 58, 199, 0.7), 0 0 30px rgba(60, 58, 199, 0.5);
+    box-shadow: 0 0 15px rgba(142, 36, 170, 0.7), 0 0 30px rgba(213, 0, 249, 0.5); /* Purple-themed glow */
 }
+
 .getcode {
-    background: linear-gradient(to right, #2421ac, #b4adf3);
-    color: #ffffff;
-    padding: 5px 15px ;
-    border-radius: 25px 25px 25px 25px ;
+    background: linear-gradient(to right, #6a1b9a, #8e24aa); /* Rich purple gradient */
+    color: #ffffff; /* High contrast for text */
+    padding: 12px 20px; /* Proportional padding for a large button */
+    border-radius: 30px 100px 100px 30px; /* Custom curve for the button shape */
     text-decoration: none;
-
-
-    margin-right: 10px; /* Add margin between buttons */
+    font-size: 18px; /* Slightly larger text for emphasis */
+    font-weight: bold; /* Bold text for better readability */
     display: inline-block;
-    font-size: 16px;
+    text-align: center;
+    margin: 10px 5px; /* Margin for spacing */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.3); /* Depth through shadow */
 }
 
 .getcode:hover {
-    background: linear-gradient(to right, #b4adf3, #2421ac);
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(87, 96, 175, 0.5);
+    background: linear-gradient(to right, #8e24aa, #6a1b9a); /* Reverse gradient on hover */
+    color: #ffffff; /* Keep text color */
+    transform: translateY(-3px) scale(1.05); /* Slight lift and scaling for hover effect */
+    box-shadow: 0px 8px 20px rgba(142, 36, 170, 0.6), 0px 4px 10px rgba(106, 27, 154, 0.4); /* Glow with purple tones */
 }
+
+
+
 .ending-date{
     font-size: 10px;
     color: rgb(184, 177, 177);
