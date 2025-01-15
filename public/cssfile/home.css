@@ -9,7 +9,7 @@ body{
     border-radius: 55px;
     box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    object-fit: cover; /* Ensures the image scales properly without distortion */
+    object-fit: fill; /* Ensures the image scales properly without distortion */
 }
 
 /* Media query for tablets and medium screens */

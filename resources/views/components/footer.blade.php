@@ -12,7 +12,7 @@
         <div class="footer-container">
             <div class="col-md-1  col-sm-2text-center">
                 <a href="{{ url(app()->getLocale() . '/') }}">
-                    <img src="{{ asset('images/Untitled (1).png') }}" class="footerimg " alt="Logo">
+                    <img src="{{ asset('images/logo.png') }}" class="footerimg " alt="Logo">
                 </a>
             </div>
 
@@ -20,12 +20,12 @@
                 <div class="footer-right">
                     <div class="social-icons">
                         <p class="subscribe mt-2">@lang('message.Subscribe to our Newsletter')</p>
-                        <form class="mt-2">
+                        <form class="mt-2" method="GET">
                             @csrf
                             <div class="input-group">
                                 
                                 <input type="text" name="email" class="form-control" placeholder="@lang('message.Enter Your Email')" required>
-                                <button type="submit" class="subscribehbtn">@lang('message.Subscribe ')</button>
+                                <button type="submit" class="btn subscribehbtn  ">@lang('message.Subscribe ')</button>
                             </div>
                         </form>
                     </div>
@@ -43,7 +43,28 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        $(document).ready(function() {
+          $('#searchInput').autocomplete({
+              source: function(request, response) {
+                  $.ajax({
+                      url: '{{ route("search") }}',
+                      dataType: 'json',
+                      data: {
+                          query: request.term
+                      },
+                      success: function(data) {
+                          response(data.stores);
+                      }
+                  });
+              },
+              minLength:1 
+          });
+      });
+      </script>
+      <script src="{{asset('bootstrap-5.0.2/js/bootstrap.min.js')}}"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

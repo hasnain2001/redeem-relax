@@ -61,5 +61,6 @@ Route::middleware([SetLocale::class])->group(function () {
     // Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     // Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
     Route::post('/coupons', [CouponsController::class, ''])->name('coupons.updateRanking');
-    Route::get('/stores/search', [SearchController::class, 'searchResults'])->name('storesearch');
+    Route::get('/stores/search', [SearchController::class, 'search'])->name('search');
+    Route::get('/stores/search_results', [SearchController::class, 'searchResults'])->name('search_results');
 

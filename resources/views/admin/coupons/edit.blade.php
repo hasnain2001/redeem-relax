@@ -56,10 +56,15 @@
                                     <label for="description">Description</label>
                                     <textarea name="description" id="description" class="form-control" cols="30" rows="5" style="resize: none;">{{ $coupons->description }}</textarea>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="toggleCodeCheckbox" onchange="toggleCodeInput(this)">
+                                    <label class="form-check-label" for="toggleCodeCheckbox">Enable Code Input</label>
+                                </div>
+                                <div class="form-group" id="codeInputGroup" style="display: none;">
                                     <label for="code">Code</label>
                                     <input type="text" class="form-control" name="code" id="code" value="{{ $coupons->code }}">
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="destination_url">Destination URL <span class="text-danger">*</span></label>
                                     <input type="url" class="form-control" name="destination_url" id="destination_url" value="{{ $coupons->destination_url }}">
@@ -113,19 +118,55 @@
                                         onclick="updateTopCoupons(5)"
                                         {{ $coupons->top_coupons == 5 ? 'checked' : '' }}>
                                     <label for="top_5">5</label>
+                                    <input type="hidden" name="top_coupons_hidden" id="top_coupons_hidden">
                                 </div>
 
-                                <input type="hidden" name="top_coupons_hidden" id="top_coupons_hidden">
-
-                                {{-- <div class="form-group">
+                              
+                                <div class="form-group">
                                     <label for="authentication">Authentication</label><br>
-                                    <input type="checkbox" name="authentication[]" {{ (is_array($coupons->authentication) && in_array('never_expire', $coupons->authentication)) ? 'checked' : '' }} id="never_expire" value="never_expire">&nbsp;<label for="never_expire">Never Expire</label><br>
-                                    <input type="checkbox" name="authentication[]" {{ (is_array($coupons->authentication) && in_array('featured', $coupons->authentication)) ? 'checked' : '' }} id="featured" value="featured">&nbsp;<label for="featured">Featured</label><br>
-                                    <input type="checkbox" name="authentication[]" {{ (is_array($coupons->authentication) && in_array('free_shipping', $coupons->authentication)) ? 'checked' : '' }} id="free_shipping" value="free_shipping">&nbsp;<label for="free_shipping">Free Shipping</label><br>
-                                    <input type="checkbox" name="authentication[]" {{ (is_array($coupons->authentication) && in_array('coupon_code', $coupons->authentication)) ? 'checked' : '' }} id="coupon_code" value="coupon_code">&nbsp;<label for="coupon_code">Coupon Code</label><br>
-                                    <input type="checkbox" name="authentication[]" {{ (is_array($coupons->authentication) && in_array('top_deals', $coupons->authentication)) ? 'checked' : '' }} id="top_deals" value="top_deals">&nbsp;<label for="top_deals">Top Deals</label><br>
-                                    <input type="checkbox" name="authentication[]" {{ (is_array($coupons->authentication) && in_array('valentine', $coupons->authentication)) ? 'checked' : '' }} id="valentine" value="valentine">&nbsp;<label for="valentine">Valentine</label>
-                                </div> --}}
+                                    
+                                    <input type="radio" name="authentication" 
+                                           {{ ($coupons->authentication === 'neverexpire') ? 'checked' : '' }} 
+                                           id="neverexpire" value="neverexpire">&nbsp;
+                                    <label for="neverexpire">Never Expire</label><br>
+                                                                         <input type="radio" name="authentication" 
+                                           {{ ($coupons->authentication === 'featured') ? 'checked' : '' }} 
+                                           id="featured" value="featured">&nbsp;
+                                    <label for="featured">Featured</label><br>
+                                    
+                                    <input type="radio" name="authentication" 
+                                           {{ ($coupons->authentication === 'free shipping') ? 'checked' : '' }} 
+                                           id="free shipping" value="free shipping">&nbsp;
+                                    <label for="free shipping">Free Shipping</label><br>
+                                    
+                                    <input type="radio" name="authentication" 
+                                           {{ ($coupons->authentication === 'coupon code') ? 'checked' : '' }} 
+                                           id="coupon code" value="coupon code">&nbsp;
+                                    <label for="coupon code">Coupon Code</label><br>
+                                    
+                                    <input type="radio" name="authentication" 
+                                           {{ ($coupons->authentication === 'top deals') ? 'checked' : '' }} 
+                                           id="top deals" value="top deals">&nbsp;
+                                    <label for="top deals">Top Deals</label><br>
+                                    
+                                    <input type="radio" name="authentication" 
+                                           {{ ($coupons->authentication === 'valentine') ? 'checked' : '' }} 
+                                           id="valentine" value="valentine">&nbsp;
+                                    <label for="valentine">Valentine</label>
+                           
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="toggleOtherCheckbox" onchange="toggleOtherInput(this)">
+                                        <label class="form-check-label" for="toggleOtherCheckbox">Other</label>
+                                    </div>
+                                    <div class="form-group" id="otherInputGroup" style="display: none;">
+                                        <label for="otherAuthentication">Authentication</label>
+                                        <input type="text" class="form-control" name="authentication" id="otherAuthentication" value="{{ $coupons->authentication }}">
+                                    </div>
+                                    
+ 
+                                </div>
+                                
+                                
                                 <div class="form-group">
                                     <label for="store">Store <span class="text-danger">*</span></label>
                                     <select name="store" id="store" class="form-control fw-bold">
@@ -158,4 +199,40 @@
         </div>
     </section>
 </div>
+<script>
+    const radios = document.querySelectorAll('input[name="authentication"]');
+    const otherInput = document.getElementById('authentication_other');
+  
+    radios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.id === 'other') {
+          otherInput.style.display = 'inline';
+        } else {
+          otherInput.style.display = 'none';
+          otherInput.value = ''; // Clear input when "Other" is not selected
+        }
+      });
+    });
+
+    function toggleOtherInput(checkboxElement) {
+    const otherInputGroup = document.getElementById('otherInputGroup');
+    
+    if (checkboxElement.checked) {
+        otherInputGroup.style.display = 'block'; // Show the input field
+    } else {
+        otherInputGroup.style.display = 'none'; // Hide the input field
+    }
+}
+
+      function toggleCodeInput(checkboxElement) {
+          const codeInputGroup = document.getElementById('codeInputGroup');
+          
+          if (checkboxElement.checked) {
+              codeInputGroup.style.display = 'block'; // Show the input field
+          } else {
+              codeInputGroup.style.display = 'none'; // Hide the input field
+          }
+      }
+  </script>
+  
 @endsection

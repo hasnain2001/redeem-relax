@@ -78,8 +78,7 @@
                     color: #000000;
                 }
 
-                p,
-                li {
+          .welcome-section  p {
                     font-size: 1.05rem;
                     line-height: 1.8;
                     margin-bottom: 15px;
@@ -207,7 +206,7 @@
                 <h2>@lang('terms.contact_us_title')</h2>
                 <p>@lang('terms.contact_us_text')</p>
                 <ul>
-                    <li>@lang('terms.email')</li>
+                    <li>Email: contact@redeemrelax.com </li>
                 </ul>
             </section>
         </div>

@@ -13,7 +13,6 @@ class Coupons extends Model
         'order',
         'description',
         'code',
-        'sort',
         'destination_url',
         'top_coupons',
         'ending_date',

@@ -15,16 +15,24 @@ nav a {
 }
 .logo {
     width: 100%;
-    height: 100px;
-    padding-left:0;
-    padding-right: 30px;
+    height: 95px;
+
 }
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 15px 20px; /* Slightly increased padding for better spacing */
+    background-color: #ffffff; /* Add a background color for visibility */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
+    position:sticky ; /* Make it fixed to the top */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    transition: top 0.3s ease-in-out, background-color 0.3s ease; /* Smooth transitions for scroll effects */
 }
+
 .form-control {
     width: 350px;
 }

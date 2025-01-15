@@ -143,7 +143,7 @@
     </div>
 
 <script>
-    // JavaScript to handle the select all functionality
+  
     document.getElementById('select-all').addEventListener('click', function(event) {
         let checkboxes = document.querySelectorAll('input[name="selected_coupons[]"]');
         checkboxes.forEach(checkbox => {

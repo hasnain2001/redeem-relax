@@ -33,6 +33,6 @@ return [
     'p-12' => 'We dont respond to DNT signals (no standard exists).',
     'p-13' => 'California residents have specific privacy rights. See details in the full policy.',
     'p-14' => 'We may update our policy as required by law.',
-    'p-15' => 'Have questions? Contact us at redeemrelax@gmail.com.',
+    'p-15' => 'Have questions? Contact us at ',
     'p-16' => 'Review, update, or delete your data using our data subject access request form.',
 ];

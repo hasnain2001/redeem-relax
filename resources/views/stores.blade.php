@@ -41,13 +41,16 @@ header("X-Robots-Tag:index, follow");
 
     <nav aria-label="breadcrumb" style="background-color: #f8f9fa; border-radius: 0.25rem; padding: 10px;">
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-                <a href="/" class="text-decoration-none text-primary" style="font-weight: 500;">Home</a>
-            </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{{ url(app()->getLocale() . '/') }}" class="text-decoration-none text-primary" style="font-weight: 500;">@lang('message.home')</a>
+                    </li>
+                
+
 <li class="breadcrumb-item active" aria-current="page" style="font-weight: 600; color: #6c757d;">Stores</li>
         </ol>
     </nav>
-    <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->count() }}</span></p>
+    <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->total() }}</span></p>
 
     <div class="row card-list g-4">
         @forelse ($stores as $store)
@@ -65,7 +68,7 @@ header("X-Robots-Tag:index, follow");
 
                 <div class="shadow-bg h-100">
                     <div class="card-body text-center">
-                        <img class="stores-img rounded-circle shadow" src="{{ $store->store_image ? asset('uploads/stores/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" loading="lazy" alt="Card Image">
+                        <img class="shadow  card-img img-thumbnail" src="{{ $store->store_image ? asset('uploads/stores/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" loading="lazy" alt="Card Image">
                         <h5 class="card-title mt-3">{{ $store->name ?: "Title not found" }}</h5>
                     </div>
                 </div>
@@ -82,8 +85,8 @@ header("X-Robots-Tag:index, follow");
             </div>
         @endforelse
     </div>
-{{-- 
-    {{$stores->links('vendor.pagination.bootstrap-5')  }} --}}
+
+    {{$stores->links('vendor.pagination.bootstrap-5')  }}
 </div>
 
 

@@ -126,9 +126,7 @@ public function update(Request $request)
             'destination_url' => $validatedData['destination_url'] ?? null,
             'ending_date' => $validatedData['ending_date'] ?? null,
             'status' => $validatedData['status'] ?? 'inactive',
-            'authentication' => isset($validatedData['authentication']) 
-                ? json_encode($validatedData['authentication']) 
-                : "No Auth",
+            'authentication' => $request->input('authentication'),
             'store' => $validatedData['store'] ?? null,
             'top_coupons' => $validatedData['top_coupons'] ?? 0,
         ]);
@@ -156,8 +154,8 @@ public function update(Request $request)
             'code' => 'nullable|string|max:100',
             'destination_url' => 'nullable|url',
             'ending_date' => 'nullable|date|after_or_equal:today',
-            'authentication' => 'nullable|array',
-            'authentication.*' => 'string',
+            'authentication' => 'nullable|string',
+            'authentication.*' => 'string', // Ensure each item is a string
             'store' => 'nullable|string|max:255',
             'top_coupons' => 'nullable|integer|min:0',
         ]);
@@ -171,9 +169,7 @@ public function update(Request $request)
             'destination_url' => $request->input('destination_url', $coupons->destination_url),
             'ending_date' => $request->input('ending_date', $coupons->ending_date),
             'status' => $request->input('status', $coupons->status),
-            'authentication' => $request->has('authentication') 
-                ? json_encode($request->input('authentication')) 
-                : $coupons->authentication,
+           'authentication' => $request->input('authentication'),
             'store' => $request->input('store', $coupons->store),
             'top_coupons' => $request->input('top_coupons', $coupons->top_coupons),
         ]);

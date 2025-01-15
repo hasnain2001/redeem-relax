@@ -3,6 +3,27 @@
 @section('description','Find the best deals, discounts, and coupons on Redeem Relax. Save money on your favorite products from top brands.')
 @section('keywords','deals, discounts, coupons, savings, affiliate marketing, promo codes, cashback, online shopping, special offers, vouchers, best prices, holiday sales, seasonal discounts, gift cards, price comparison, money-saving tips')
 @section('main-content')
+<style>
+    .coupon-header {
+    position: relative; /* Ensure the container is relatively positioned */
+}
+
+.authentication-overlay {
+    position: absolute;
+    bottom: -15px; /* Adjust the value to overlap at the desired position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(226, 226, 226, 0.8); /* Semi-transparent red background */
+    color: rgb(7, 7, 7); /* White text color */
+    padding: 15px 20px; /* Add some padding for better appearance */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    font-size: 15px; /* Adjust the font size */
+    width: 100%;
+
+}
+
+</style>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators custom-carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -50,24 +71,25 @@
 $store = App\Models\Stores::where('slug', $coupon->store)->first();
 @endphp
 
-<div class="coupon-header text-center">
-@if ($store && $store->store_image)
-<a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}">
-    <img src="{{ asset('uploads/stores/' . $store->store_image) }}"
-        alt="{{ $store->name }} Image" class="coupon-image img-fluid"
-        loading="lazy">
-</a>
-  
-@else
-<div class="no-image-placeholder bg-light text-center py-4">
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
-<path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
-</svg>
-<span>{{ $coupon->store }}</span>
+<div class="coupon-header text-center position-relative">
+    @if ($store && $store->store_image)
+        <a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}">
+            <img src="{{ asset('uploads/stores/' . $store->store_image) }}" alt="{{ $store->name }} Image" class="coupon-image " loading="lazy">
+        </a>
+        <p class="authentication-overlay text-capitalize ">{{ $coupon->authentication }}</p>
+    @else
+        <div class="no-image-placeholder bg-light text-center py-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
+                <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+            </svg>
+            <span>{{ $coupon->store }}</span>
+        </div>
+    @endif
 </div>
-     @endif
-</div>
+
+
 <div class="mb-4 coupon-body py-3 ">
+    <span>{{ $coupon->store }}</span>
 <h6 class="text-left">{{ $coupon->name }}</h6>
 <span class="d-block mb-2 {{ \Carbon\Carbon::parse($coupon->ending_date)->isPast() ? 'text-danger' : 'text-muted' }}">
 Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
@@ -116,28 +138,24 @@ Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 $store = App\Models\Stores::where('slug', $coupon->store)->first();
 @endphp
 
-<div class="coupon-header text-center">
-@if ($store && $store->store_image)
-<a href=""></a>
-<a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}">
-    <img src="{{ asset('uploads/stores/' . $store->store_image) }}"
-        alt="{{ $store->name }} Image" class="coupon-image img-fluid"
-        loading="lazy">
-</a>
-@else
-<div class="no-image-placeholder bg-light text-center py-4">
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
-<path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
-</svg>
-<span>{{ $coupon->store }}</span>
-</div>
-
-@endif
-
+<div class="coupon-header text-center position-relative">
+    @if ($store && $store->store_image)
+        <a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}">
+            <img src="{{ asset('uploads/stores/' . $store->store_image) }}" alt="{{ $store->name }} Image" class="coupon-image " loading="lazy">
+        </a>
+        <p class="authentication-overlay text-capitalize ">{{ $coupon->authentication }}</p>
+    @else
+        <div class="no-image-placeholder bg-light text-center py-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
+                <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+            </svg>
+            <span>{{ $coupon->store }}</span>
+        </div>
+    @endif
 </div>
 
 <div class="mb-4 coupon-body py-3 ">
-
+    <span>{{ $coupon->store }}</span>
 <h6 class="text-left">{{ $coupon->name }}</h6>
 
 <span class="d-block mb-2 {{ \Carbon\Carbon::parse($coupon->ending_date)->isPast() ? 'text-danger' : 'text-muted' }}">
@@ -184,18 +202,16 @@ Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
           : route('store_details.withLang', ['lang' => $language, 'slug' => $storeSlug]))  // Other languages
       : '#';
 @endphp
-
-
-
+{{-- <a href="{{ route('stores', ['lang' => $store->language->code, 'id' => $store->id]) }}">
+  {{ $store->name }}
+</a> --}}
 <a href="{{ $storeurl }}" class="card-link text-decoration-none">
         <div class="card-body card-body-store d-flex justify-content-center align-items-center">
             <span class="top-store-name text-center text-truncate">{{ $store->name }}</span> <!-- Added text-truncate for long names -->
         </div>
     </a>
 </div>
-{{-- <a href="{{ route('stores', ['lang' => $store->language->code, 'id' => $store->id]) }}">
-  {{ $store->name }}
-</a> --}}
+
 @endforeach
 
 
@@ -210,6 +226,7 @@ Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 
 <script src="{{ asset('front/assets/js/java.js') }}"></script>
 <script>
+    
 // Function to toggle coupon code visibility and copy button
 function toggleCouponCode(couponId) {
 // Set the coupon ID in localStorage to remember the state

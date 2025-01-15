@@ -132,7 +132,7 @@
 
                                         <div class="form-group">
                                             <label for="category">Category <span class="text-danger">*</span></label>
-                                            <select name="category" id="category" class="form-control">
+                                            <select name="category" id="category" class="form-control" required>
                                                 <option value="" disabled selected>--Select Category--</option>
                                                 @foreach ($categories as $category)
                                                     <option value="{{ $category->slug }}">{{ $category->slug }}</option>
@@ -141,15 +141,17 @@
                                         </div>
 
                                     </div>
-                                <div class="form-group">
-                                            <label for="lang">Language <span class="text-danger">*</span></label>
-                                            <select name="language_id" id="lang" class="form-control" required>
-                                                <option disabled selected>--Select Langs--</option>
+                           
+                                        <div class="form-group">
+                                            <label for="store">Language <span class="text-danger">*</span></label>
+                                            <select name="language_id" id="language_id" class="form-control" required >
+                                                <option value="" disabled selected>--Select Language--</option>
                                                 @foreach ($langs as $lang)
-                                                    <option value="{{ $lang->id }}">{{ $lang->code }}</option>
-                                                @endforeach
+                                                <option value="{{ $lang->id }}">{{ $lang->code }}</option>
+                                            @endforeach
                                             </select>
                                         </div>
+                                        
                                     <div class="form-group">
                                         <label for="store_image">Store Image <span class="text-danger">*</span></label>
                                         <input type="file" class="form-control" name="store_image" id="store_image"

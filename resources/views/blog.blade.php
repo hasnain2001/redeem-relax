@@ -30,6 +30,18 @@ header("X-Robots-Tag:index, follow");
 <x-navbar/>
 <br>
 
+<nav aria-label="breadcrumb" style="background-color: #f8f9fa; border-radius: 0.25rem; padding: 10px;">
+    <ol class="breadcrumb mb-0">
+
+            <li class="breadcrumb-item">
+                <a href="{{ url(app()->getLocale() . '/') }}" class="text-decoration-none text-primary" style="font-weight: 500;">@lang('message.home')</a>
+                </li>
+            
+
+<li class="breadcrumb-item active" aria-current="page" style="font-weight: 600; color: #6c757d;">Blog</li>
+    </ol>
+</nav>
+
 <div class="container">
   <div class="row">
     
@@ -55,7 +67,9 @@ header("X-Robots-Tag:index, follow");
               </div>
               @endforeach
           </div>
+          {{ $blogs->links('pagination::bootstrap-5') }} 
       </div>
+ 
         <!-- Stores Section -->
         <div class="col-md-3">
           <aside class="sidebar p-3 bg-light">

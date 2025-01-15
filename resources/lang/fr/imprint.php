@@ -4,7 +4,7 @@ return [
     'owner' => 'Redeem relax  Inc.',
     'address' => '3000 Hoffman Dr, Plano, Tx USA',
     'email_us' => 'Contactez-nous :',
-    'contact_email' => 'contact@CouponsArena.com',
+    'contact_email' => 'redeemrelax@gmail.com',
     'imprint' => 'Mentions légales',
     'contact_information' => 'Informations de contact',
     'home' => 'Accueil',

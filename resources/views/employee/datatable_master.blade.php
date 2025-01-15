@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | DataTables</title>
+ <title>@yield('datatable-title') | DataTables</title>
 
    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
@@ -24,7 +24,7 @@
 
       <style>
             .sidebar-dark-primary {
-            background-color: #0054a6;
+            background-color: #7d11af;
 
         }
 
@@ -166,9 +166,7 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
-                       
-                         
-                      <li class="nav-item">
+                       <li class="nav-item">
                       <a href="{{ route('employee.blog.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Blog</p>
@@ -183,9 +181,34 @@
                           </li>
                       
                       </ul>
+                    
                   </li>
                  
-              
+               <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-network-wired"></i>
+                            <p>
+                                Network
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                 <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                       <a href="{{ route('employee.network') }}" class="nav-link">
+                       <i class="far fa-circle nav-icon"></i>
+                       <p>Network</p>
+                       </a>
+                       </li>
+                          
+                           <li class="nav-item">
+                               <a href="{{ route('employee.network.create') }}" class="nav-link">
+                                   <i class="far fa-circle nav-icon"></i>
+                                   <p>Add New NetWORK</p>
+                               </a>
+                           </li>
+                       
+                       </ul>
+                    </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-list"></i>

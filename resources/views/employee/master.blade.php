@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title') |Couponsarena</title>
+    <title>@yield('title') |Redeem Relax</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet"
@@ -32,7 +32,7 @@
 
       <style>
             .sidebar-dark-primary {
-                background-color: #0054a6;
+                background-color: #8e0baf;
 
         }
 
@@ -93,7 +93,7 @@
             <a  href="{{ route('employee.dashboard') }}" class="brand-link">
                 <img src="{{ asset('images/logo.png') }}" alt="employeeLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">CouponsArena</span>
+                <span class="brand-text font-weight-light">Redeem Relax</span>
             </a>
 
             <div class="sidebar">
@@ -103,7 +103,7 @@
                     data-accordion="false">
 
                     <li class="nav-item">
-                        <a href="{{ route('employee.dashboard') }}" class="nav-link active">
+                        <a href="{{ route('employee.dashboard') }}" class="nav-link ">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Dashboard
@@ -219,7 +219,31 @@
                            
                         </ul>
                     </li>
-                 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-network-wired"></i>
+                            <p>
+                                Network
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                 <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                       <a href="{{ route('employee.network') }}" class="nav-link">
+                       <i class="far fa-circle nav-icon"></i>
+                       <p>Network</p>
+                       </a>
+                       </li>
+                          
+                           <li class="nav-item">
+                               <a href="{{ route('employee.network.create') }}" class="nav-link">
+                                   <i class="far fa-circle nav-icon"></i>
+                                   <p>Add New NetWORK</p>
+                               </a>
+                           </li>
+                       
+                       </ul>
+                    </li>
                 </ul>
                 </nav>
 

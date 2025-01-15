@@ -56,7 +56,7 @@ class HomeController extends Controller
     
     
         // Fetch top coupon codes for the specified language
-        $topcouponcode = Coupons::select('id', 'name', 'language_id', 'created_at','name','ending_date','store','clicks','destination_url') 
+        $topcouponcode = Coupons::select('id', 'name', 'language_id', 'created_at','name','ending_date','store','clicks','destination_url','authentication') 
         ->whereNotNull('code')
             ->where('code', '!=', '')
             ->where('language_id', $language->id)
@@ -67,7 +67,7 @@ class HomeController extends Controller
     
         // Optimize top deals query
         // Fetch top deals for the specified language
-        $Couponsdeals = Coupons::select('id', 'name', 'language_id', 'created_at', 'ending_date', 'store','clicks','destination_url')
+        $Couponsdeals = Coupons::select('id', 'name', 'language_id', 'created_at', 'ending_date', 'store','clicks','destination_url','authentication')
             ->where('language_id', $language->id)
             ->where(function ($query) {
                 $query->where('top_coupons', '>', 0)
@@ -76,7 +76,9 @@ class HomeController extends Controller
             ->whereNull('code') // Ensure no coupon code
             ->orderBy('top_coupons', 'desc')
             ->orderBy('created_at', 'desc')
-            ->paginate(8);
+            ->limit(8)
+            ->get();
+    
     
         // Return the welcome view with the required data
         return view('home', compact('stores', 'Couponsdeals', 'topcouponcode'));
@@ -100,20 +102,18 @@ class HomeController extends Controller
     {
         $languageCode = $lang ?? 'en';
         app()->setLocale($languageCode);
-    
         // Paginate blogs as usual
         $blogs = Blog::paginate(5);
     
+        // Check if a language code is provided
         if ($lang) {
             // Find the language by the code in the URL
             $language = Language::where('code', $lang)->first();
     
             if ($language) {
-                // Get stores filtered by language and sort by latest
+                // Get stores filtered by language and paginate
                 $chunks = Stores::where('language_id', $language->id)
-                    ->orderBy('created_at', 'desc') // Sort by created_at
-                    ->take(25) // Limit the results to 25
-                    ->get() // Retrieve the data
+                    ->paginate(25)
                     ->map(function($store) use ($language) {
                         // Append language code to the store's URL
                         $store->url_with_language = url($language->code . '/blog/' . $store->id);
@@ -124,19 +124,15 @@ class HomeController extends Controller
             }
         } else {
             // Default to English or a fallback if no language code is provided
-            $chunks = Stores::orderBy('created_at', 'desc') // Sort by created_at
-                ->take(25) // Limit to 25 stores
-                ->get() // Retrieve the data
-                ->map(function($store) {
-                    $language = Language::find($store->language_id);
-                    $store->url_with_language = $language ? url($language->code . '/blog/' . $store->id) : url('en/store/' . $store->id);
-                    return $store;
-                });
+            $chunks = Stores::paginate(25)->map(function($store) {
+                $language = Language::find($store->language_id);
+                $store->url_with_language = $language ? url($language->code . '/blog/' . $store->id) : url('en/store/' . $store->id);
+                return $store;
+            });
         }
     
         return view('blog', compact('blogs', 'chunks'));
     }
-    
     
     
     
@@ -154,15 +150,21 @@ class HomeController extends Controller
     }
     
     
-    public function stores(Request $request, $lang = null)
+ public function stores(Request $request, $lang = null)
     {
         $languageCode = $lang ?? 'en';
         app()->setLocale($languageCode);
+    
         if ($lang) {
-           $language = Language::where('code', $lang)->first();
+            $language = Language::where('code', $lang)->first();
     
             if ($language) {
-                $stores = Stores::where('language_id', $language->id)->paginate(100)->map(function($store) use ($language) {
+                $stores = Stores::where('language_id', $language->id)
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(30);
+    
+                // Modify the items in the paginated collection
+                $stores->getCollection()->transform(function ($store) use ($language) {
                     $store->url_with_language = url($language->code . '/store/' . $store->id);
                     return $store;
                 });
@@ -170,14 +172,19 @@ class HomeController extends Controller
                 abort(404, 'Language not found');
             }
         } else {
-            $stores = Stores::paginate(100)->map(function($store) {
+            $stores = Stores::paginate(10);
+    
+            // Modify the items in the paginated collection
+            $stores->getCollection()->transform(function ($store) {
                 $language = Language::find($store->language_id);
-                $store->url_with_language = $language ? url($language->code . '/store/' . $store->id) : url('en/store/' . $store->id);
+                $store->url_with_language = $language
+                    ? url($language->code . '/store/' . $store->id)
+                    : url('en/store/' . $store->id);
                 return $store;
             });
         }
     
-        return view('stores', compact('stores', ));
+        return view('stores', compact('stores'));
     }
     
     
@@ -215,26 +222,26 @@ class HomeController extends Controller
         // Sorting and fetching coupons
         $sort = $request->query('sort', 'all');
         if ($sort === 'codes') {
-            $coupons = Coupons::where('store', $store->name)
+            $coupons = Coupons::where('store', $store->slug)
                               ->whereNotNull('code')
                               ->orderByRaw('CAST(`order` AS SIGNED) ASC')
                               ->get();
         } elseif ($sort === 'deals') {
-            $coupons = Coupons::where('store', $store->name)
+            $coupons = Coupons::where('store', $store->slug)
                               ->whereNull('code')
                               ->orderByRaw('CAST(`order` AS SIGNED) ASC')
                               ->get();
         } else {
-            $coupons = Coupons::where('store', $store->name)
+            $coupons = Coupons::where('store', $store->slug)
                               ->orderByRaw('CAST(`order` AS SIGNED) ASC')
                               ->get();
         }
     
         // Count the number of codes and deals
-        $codeCount = Coupons::where('store', $store->name)
+        $codeCount = Coupons::where('store', $store->slug)
                             ->whereNotNull('code')
                             ->count();
-        $dealCount = Coupons::where('store', $store->name)
+        $dealCount = Coupons::where('store', $store->slug)
                             ->whereNull('code')
                             ->count();
     
@@ -269,7 +276,7 @@ class HomeController extends Controller
         }
     
         // Fetch related coupons and stores
-        $stores = Stores::where('category', $title)->orderBy('created_at','desc')->get();
+        $stores = Stores::where('category', $title)->get();
     
     
         return view('related_category', compact('category', 'stores' ));

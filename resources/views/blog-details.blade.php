@@ -36,6 +36,20 @@ header("X-Robots-Tag:index, follow");?>
 
 <x-navbar/>
 <br>
+<nav aria-label="breadcrumb" style="background-color: #f8f9fa; border-radius: 0.25rem; padding: 10px;">
+    <ol class="breadcrumb mb-0">
+
+            <li class="breadcrumb-item">
+                <a href="{{ url(app()->getLocale() . '/') }}" class="text-decoration-none text-primary" style="font-weight: 500;">@lang('message.home')</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ url(app()->getLocale() . '/blog') }}" class="text-decoration-none text-primary" style="font-weight: 500;">Blog</a>
+                    </li>
+            
+
+<li class="breadcrumb-item active" aria-current="page" style="font-weight: 600; color: #6c757d;">{{ $blog->title }}</li>
+    </ol>
+</nav>
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-8 mb-4">
@@ -61,7 +75,7 @@ header("X-Robots-Tag:index, follow");?>
                             : '#';
                             @endphp
                             <a href="{{ $storeurl }}" class="text-dark text-decoration-none d-flex flex-column p-2 align-items-center">
-                                <img src="{{ asset('uploads/store/' . $store->store_image) }}" alt="{{ $store->name }}" class="mb-2 shadow" style="width: 100px; height: 100px; object-fit: cover;">
+                                <img src="{{ asset('uploads/stores/' . $store->store_image) }}" alt="{{ $store->name }}" class="mb-2 shadow" style="width: 100px; height: 100px; object-fit: cover;">
                                 <p class="text-capitalize">{{ $store->name }}</p>
                             </a>
                         </div>

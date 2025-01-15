@@ -20,7 +20,13 @@
     </div>
 @endif
 
-
+@if(session('success'))
+<div class="alert alert-success alert-dismissable">
+    <i class="fa fa-ban"></i>
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <b>{{ session('success') }}</b>
+</div>
+@endif
                         <!-- Display validation errors here -->
                         @if ($errors->any())
                         <div  class="alert alert-danger" >

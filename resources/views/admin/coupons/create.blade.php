@@ -129,53 +129,57 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="lang">Language <span class="text-danger">*</span></label>
-                        
-                                <select name="language_id" id="language_id" class="form-control"required>
-                                <option disabled selected>--Select Langs--</option>
+                            <label for="store">Language <span class="text-danger">*</span></label>
+                            <select name="language_id" id="language_id" class="form-control" required >
+                                <option value="" disabled selected>--Select Language--</option>
                                 @foreach ($langs as $lang)
-                                    <option value="{{ $lang->id }}">{{ $lang->code }}</option>
-                                @endforeach
+                                <option value="{{ $lang->id }}">{{ $lang->code }}</option>
+                            @endforeach
                             </select>
-                            
                         </div>
- <div class="form-group">
-  <label for="authentication">Authentication</label><br>
-  
-  <input type="radio" name="authentication" id="never_expire" value="never_expire">
-  <label for="never_expire">Never Expire</label>
-  
-  <input type="radio" name="authentication" id="featured" value="featured">
-  <label for="featured">Featured</label>
-  
-  <input type="radio" name="authentication" id="free_shipping" value="free_shipping">
-  <label for="free_shipping">Free Shipping</label>
-  
-  <input type="radio" name="authentication" id="coupon_code" value="coupon_code">
-  <label for="coupon_code">Coupon Code</label>
-  
-  <input type="radio" name="authentication" id="top_deals" value="top_deals">
-  <label for="top_deals">Top Deals</label>
-  
-  <input type="radio" name="authentication" id="valentine" value="valentine">
-  <label for="valentine">Valentine</label>
-  
-  <input type="radio" name="authentication" id="other" value="other">
-  <label for="other">Other</label>
-  
-  <input type="text" name="authentication_other" id="authentication_other" placeholder="Specify other" style="display: none;">
-</div>
+                     
+                        <div class="form-group">
+                            <label for="authentication">Authentication</label><br>
+                            
+                            <input type="radio" name="authentication" id="never expire" value="never expire">
+                            <label for="never expire">Never Expire</label><br>
+                            
+                            <input type="radio" name="authentication" id="featured" value="featured">
+                            <label for="featured">Featured</label><br>
+                            
+                            <input type="radio" name="authentication" id="free shipping" value="free shipping">
+                            <label for="free shipping">Free Shipping</label><br>
+                            
+                            <input type="radio" name="authentication" id="coupon code" value="coupon_code">
+                            <label for="coupon code">Coupon Code</label><br>
+                            
+                            <input type="radio" name="authentication" id="top deals" value="top_deals">
+                            <label for="top deals">Top Deals</label><br>
+                            
+                            <input type="radio" name="authentication" id="valentine" value="valentine">
+                            <label for="valentine">Valentine</label><br>
+                            
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="toggleOtherCheckbox" onchange="toggleOtherInput(this)">
+                                <label class="form-check-label" for="toggleOtherCheckbox">Other</label>
+                            </div>
+                            <div class="form-group" id="otherInputGroup" style="display: none;">
+                                <label for="otherAuthentication">Authentication</label>
+                                <input type="text" class="form-control" name="authentication" id="otherAuthentication" >
+                            </div>
+                          </div>
+                          
                           
                          
-                          
+<div class="col-12">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{{ route('admin.coupon') }}" class="btn btn-secondary">Cancel</a>
+</div>       
                      
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a href="{{ route('admin.coupon') }}" class="btn btn-secondary">Cancel</a>
-            </div>
+          
         </div>
     </form>
 
@@ -184,19 +188,17 @@
     </section>
 </div>
     <script>
-  const radios = document.querySelectorAll('input[name="authentication"]');
-  const otherInput = document.getElementById('authentication_other');
 
-  radios.forEach(radio => {
-    radio.addEventListener('change', function() {
-      if (this.id === 'other') {
-        otherInput.style.display = 'inline';
-      } else {
-        otherInput.style.display = 'none';
-        otherInput.value = ''; // Clear input when "Other" is not selected
-      }
-    });
-  });
+function toggleOtherInput(checkboxElement) {
+    const otherInputGroup = document.getElementById('otherInputGroup');
+    
+    if (checkboxElement.checked) {
+        otherInputGroup.style.display = 'block'; // Show the input field
+    } else {
+        otherInputGroup.style.display = 'none'; // Hide the input field
+    }
+}
+
     function toggleCodeInput(checkboxElement) {
         const codeInputGroup = document.getElementById('codeInputGroup');
         

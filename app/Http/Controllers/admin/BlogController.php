@@ -23,7 +23,7 @@ class BlogController extends Controller
     }
 
     public function blogs_show() {
-        $blogs = Blog::paginate(10);
+        $blogs = Blog::select('id','title','category_image')->orderby('created_at','desc')->get();
         return view('admin.Blog.show', compact('blogs'));
     }
 

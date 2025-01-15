@@ -24,7 +24,7 @@
 
       <style>
             .sidebar-dark-primary {
-            background-color: #0054a6;
+            background-color:#701e7d;
 
         }
 
@@ -311,13 +311,7 @@
             @yield('datatable-content')
         {{-- Datatable Main Content Here --}}
 
-        <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
-                <b>Version</b> 3.2.0
-            </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io/">AdminLTE.io</a>.</strong> All rights
-            reserved.
-        </footer>
+ 
 
         <aside class="control-sidebar control-sidebar-dark">
 

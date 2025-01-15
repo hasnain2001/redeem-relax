@@ -41,9 +41,6 @@
             <option value="{{ route('employee.coupon.code') }}">Code</option>
             <option value="{{ route('employee.coupon.create') }}">Deal</option>
         </select> --}}
-
-
-
         <div class="row">
             <div class="col-6">
                 <div class="card">

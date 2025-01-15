@@ -13,7 +13,7 @@ class SearchController extends Controller
         $query = $request->input('query');
     
         // Fetch stores matching the query for autocomplete
-        $stores = Stores::where('slug', 'like', "%$query%")->pluck('slug');
+        $stores = Stores::where('slug', 'like', "$query%")->pluck('slug');
     
         // Check if there is a single store matching the query exactly
         $store = Stores::where('slug', $query)->first();
@@ -36,22 +36,23 @@ class SearchController extends Controller
     }
     
 
-    public function searchResults(Request $request)
-    {
+    public function searchResults(Request $request) {
         $query = $request->input('query');
     
-        // Fetch stores matching the query for autocomplete, paginated
-        $stores = Stores::where('name', 'like', "%$query%")->paginate(10);
-        $stores->appends(['query' => $query]);
+        // Fetch stores matching the query for autocomplete
+        $stores = Stores::where('name', 'like', "$query%")->get();
     
         // Check if there is a single store matching the query exactly
         $store = Stores::where('name', $query)->first();
     
         if ($store) {
             // If a single store is found, redirect to its details page
-            return redirect()->route('store_details', ['name' => Str::slug($store->name)]);
+            return redirect()->route('store_details', ['slug' => Str::slug($store->slug)]);
         }
     
         return view('search_results', ['stores' => $stores]);
     }
+    
+
+
 }

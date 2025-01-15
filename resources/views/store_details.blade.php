@@ -51,14 +51,31 @@ header("X-Robots-Tag:index, follow");
 <!-- Store Information and Coupons Section -->
 <div class="container">
     <!-- Breadcrumb Navigation -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="/" class="text-dark text-decoration-none">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $store->name }}</li>
-        </ol>
-    </nav>
+    <div class="main-content">
+        <head aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{{ url(app()->getLocale() . '/') }}}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    @if($store->category)
+                        <a class=" text-decoration-none" href="{{ route('related_category', ['slug' => Str::slug($store->category)]) }}">
+                            {{ $store->category }}
+                        </a>
+                    @else
+                        <span>No Category</span>
+                    @endif
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ url(app()->getLocale() . '/stores') }}" class="text-dark text-decoration-none">Stores</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ $store->slug }}
+                </li>
+            </ol>
+        </head>
+        
+    </div>
     <hr>
 
     <div class="row">
@@ -186,28 +203,30 @@ header("X-Robots-Tag:index, follow");
             <!-- Related Stores Section -->
             <div class="store-info-card card shadow-sm p-3 mb-5 bg-white rounded">
                 <h4 class="text-center mb-4">Related Stores</h4>
-                <div class="row row-cols-2 gy-3">
-                    @foreach ($relatedStores as $relatedStore)
-                    @php
-                    // Ensure 'lang' parameter is set properly (fallback to 'en' if needed)
-                    $language = app()->getLocale() ?? 'en';
-                
-                    // Generate store URL or fallback to '#' if store slug is missing
-                    $storeurl = $relatedStore->slug 
-                        ? route('store_details', ['lang' => $language, 'slug' => $relatedStore->slug]) 
-                        : '#';
-                @endphp
-                
-   
-                <a href="{{ $storeurl }}" class="card-link text-decoration-none">
-                        <div class="col">
-                            <div class="related-store-box text-left">
-                                <a href="{{ $storeurl }}" class="store-link">{{ $relatedStore->name }}</a>
+                <div class="row row-cols-2 row-cols-md-2 gy-3">
+                    @foreach ($relatedStores as $store)
+                        @php
+                       $language = $store->language ? $store->language->code : 'en'; // Default to 'en' if language is null
+                       $storeSlug = Str::slug($store->slug);
+                   
+                       // Conditionally generate the URL based on the language
+                       $storeurl = $store->slug
+                           ? ($language === 'en'
+                               ? route('store_details', ['slug' => $storeSlug])  // English route without 'lang'
+                               : route('store_details.withLang', ['lang' => $language, 'slug' => $storeSlug]))  // Other languages
+                           : '#';
+                   @endphp
+                    <div class="col">
+                        <a href="{{ $storeurl }}" class="card-link text-decoration-none">
+                            <div class="related-store-box text-center">
+                                <span class="store-link">{{ $store->name }}</span>
                             </div>
-                        </div>
+                        </a>
+                    </div>
                     @endforeach
                 </div>
             </div>
+            
         </div>
     </div>
     <br><br>

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <header class="header-container sticky-top">
+    <header class="header-container  fixed-top" id="navbar">
         <!-- Logo section -->
         <div class="logo-container d-sm-block d-none">
             <a class="navbar-brand" href="{{ url(app()->getLocale() . '/') }}">
@@ -23,13 +23,13 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-lg " >
             <div class="container-fluid">
                 <a class="d-block d-sm-none " href="{{ url(app()->getLocale() . '/') }}">
-                    <img src="{{ asset('images/Untitled (1).png') }}" alt="Logo" class="mb-logo" loading="lazy">
+                    <img src="{{ asset('images/logo1.png') }}" alt="Logo" class="logo" loading="lazy">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,7 +49,7 @@
                                     @foreach ($categories as $category)
                                         <div class="col-md-3">
                                             
-                                            <a href="{{ route('related_category', ['lang' => app()->getLocale(), 'slug' => Str::slug($category->slug)]) }}" class="dropdown-item text-dark">{{ $category->title }}</a>
+                                            <a href="{{ route('related_category', ['slug' => Str::slug($category->slug)]) }}" class="dropdown-item text-dark">{{ $category->title }}</a>
 
                                         </div>
                                     @endforeach
@@ -74,11 +74,11 @@
 
             <!-- Search and Language Selector -->
             <div class="search-language-container">
-                <form action="{{ route('storesearch') }}" method="GET" class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" name="query" placeholder="@lang('message.search')" aria-label="Search">
+                <form id="searchForm" action="{{ route('search') }}" method="GET" class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" name="query" id="searchInput" placeholder="@lang('message.search')" aria-label="Search">
                     <button class="searchbtn" type="submit"><i class="fas fa-search"></i></button>
                 </form>
-
+               
                 <li class="nav-item dropdown list-unstyled ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ strtoupper($currentLang) }}
@@ -100,59 +100,23 @@
 <button onclick="topFunction()" id="myBtn" title="Go to top">
         <i class="fas fa-chevron-up"></i>
     </button>
- <script>
-     function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
- </script>
-  <script>
-    let navbar = document.getElementById('navbar');
-    var scrollPrev = window.pageYOffset;
-    window.onscroll = function () {
-        var scrollCur = window.pageYOffset;
-        if (scrollPrev > scrollCur) {
+    
+ <script src="{{ asset('js/navbar.js') }}"></script>
+<script>let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
+    
+    window.addEventListener("scroll", function () {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            navbar.style.top = "-80px"; // Adjust height as per your header
+        } else {
+            // Scrolling up
             navbar.style.top = "0";
-        } else {
-            navbar.style.top = "-90px";
         }
-        scrollPrev = scrollCur;
-    };
-
-    document.querySelectorAll('#navbar ul li').forEach((item) => {
-        item.addEventListener('click', function () {
-            document.querySelector('#navbar ul li.active').classList.remove('active');
-            this.classList.add('active');
-        });
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
     });
- </script>
-<script>
-    // Add event listener for the select dropdown
-    document.getElementById('languageSelector').addEventListener('change', function () {
-        var selectedLang = this.value;
-        var url = `/${selectedLang}`;
-        
-        // Check if the selected language is "EN" to redirect to the homepage
-        if (selectedLang === 'en') {
-            url = '/';  // Redirect to the homepage for English
-        }
-
-        window.location.href = url;  // Redirect the user to the new URL
-    });
-    // Scroll-to-top button logic
-    let mybutton = document.getElementById("myBtn");
-    window.onscroll = function() {scrollFunction()};
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-   
- 
-</script>
-
-
+    </script>
 </body>
 </html>
