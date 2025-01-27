@@ -22,7 +22,56 @@ header("X-Robots-Tag:index, follow");
  <meta name="robots" content="index, follow">
 
      <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+ <style>
+    /* Category Header Style */
+.category-header {
+    background-size: contain;
+    background-position:cover ;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 
+    background-image: url('{{ asset('uploads/categories/' . $category->category_image) }}');
+   
+}
+
+.category-header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.category-header .category-title {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5%;
+}
+
+/* Fallback Image Style */
+.fallback-image {
+    height: 300px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+.fallback-image i {
+    color: #6c757d;
+}
+
+.fallback-image p {
+    color: #6c757d;
+}
+
+ </style>
   </head>
   <body>
 
@@ -43,7 +92,21 @@ header("X-Robots-Tag:index, follow");
 <li class="breadcrumb-item active" aria-current="page" style="font-weight: 600; color: #6c757d;">{{$category->title}}</li>
         </ol>
     </nav>
-    <h1 class="text-center" style="text-transform: capitalize;">{{$category->title}}</h1>
+    <div class="category-header text-center text-white" >
+        @if ($category->category_image)
+            <div class="overlay d-flex justify-content-center align-items-center">
+                <h1 class="category-title text-uppercase ">{{ $category->title }}</h1>
+            </div>
+        @else
+            <div class="d-flex align-items-center justify-content-center mt-3 fallback-image">
+                <i class="fas fa-image fa-3x text-muted"></i>
+                <p class="ms-2 mb-0 text-muted">No image available</p>
+            </div>
+        @endif
+    </div>
+    
+    
+    
 
     <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->count() }}</span></p>
 

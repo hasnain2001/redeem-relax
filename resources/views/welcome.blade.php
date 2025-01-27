@@ -21,7 +21,6 @@ header("X-Robots-Tag: index, follow");
 
 
    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ asset('front/assets/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
    
 </head>

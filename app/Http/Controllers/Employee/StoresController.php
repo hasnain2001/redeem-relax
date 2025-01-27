@@ -274,15 +274,31 @@ public function checkSlug(Request $request)
 
     public function deleteSelected(Request $request)
     {
+        // Get selected store IDs from the request
         $storeIds = $request->input('selected_stores');
-
+    
         if ($storeIds) {
-            // Delete only the stores
-            Stores::whereIn('id', $storeIds)->delete();
-
-            return redirect()->back()->with('success', 'Selected stores deleted successfully');
+            // Find the stores by IDs
+            $stores = Stores::whereIn('id', $storeIds)->get();
+    
+            foreach ($stores as $store) {
+                // Log the store deletion attempt in the delete_store table
+                DeleteStore::create([
+                    'store_id' => $store->id,
+                    'store_name' => $store->name,
+                    'deleted_by' => Auth::id(),
+                ]);
+    
+                // Delete associated coupons with the same store name
+                Coupons::where('store', $store->slug)->delete();
+    
+                // Delete the store (soft delete if the SoftDeletes trait is used)
+                $store->delete();
+            }
+    
+            return redirect()->back()->with('success', 'Selected stores and their associated coupons deleted successfully.');
         } else {
-            return redirect()->back()->with('error', 'No stores selected for deletion');
+            return redirect()->back()->with('error', 'No stores selected for deletion.');
         }
     }
 

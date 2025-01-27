@@ -103,7 +103,7 @@ class HomeController extends Controller
         $languageCode = $lang ?? 'en';
         app()->setLocale($languageCode);
         // Paginate blogs as usual
-        $blogs = Blog::paginate(5);
+        $blogs = Blog::paginate(12);
     
         // Check if a language code is provided
         if ($lang) {

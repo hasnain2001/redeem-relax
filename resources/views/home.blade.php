@@ -21,6 +21,20 @@
     width: 100%;
 
 }
+.title {
+    font-size: 30px; /* Larger font size for more emphasis */
+    font-weight: 400; /* Bold for a stronger presence */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    color: #333333; /* Dark color for contrast */
+    text-transform: uppercase; /* Transform text to uppercase for style */
+    letter-spacing: 1px; /* Add spacing between letters */
+    text-align: center; /* Center-align the title */
+    line-height: 1.4; /* Better line height for readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin: 20px 0; /* Add spacing above and below */
+}
+
+
 
 </style>
 
@@ -58,7 +72,7 @@
 <div class="conatain">
 <div class="row mb-4">
 <div class="col-12">
-<h1 class="title text-center ">@lang('message.Trending Promo Codes To Save Everyday')</h1>
+<h1 class=" title text-center ">@lang('message.Trending Promo Codes To Save Everyday')</h1>
 <hr>
 </div>
 </div>

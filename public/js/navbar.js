@@ -1,51 +1,81 @@
+let lastScrollY = window.scrollY;
+const navbar = document.getElementById('navbar');
+const mobileMenu = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-list');
+const categoriesButton = document.getElementById('categories-button');
+const modal = document.getElementById('categories-modal');
+const closeModal = document.querySelector('.close-modal');
+const regionButton = document.getElementById('region-button');
+const regionModal = document.getElementById('region-modal');
+const closeRegionModal = document.querySelector('.close-region-modal'); // Add a specific close button for region modal
 
-     function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+window.addEventListener('scroll', () => {
+    // If scrolling down, hide the navbar by setting top to '-100%'
+    if (window.scrollY > lastScrollY) {
+        navbar.style.top = '-100%'; // Completely hide the navbar
+    } else {
+        navbar.style.top = '0'; // Show the navbar when scrolling up
     }
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    lastScrollY = window.scrollY;
+});
 
-        let navbar = document.getElementById('navbar');
-        var scrollPrev = window.pageYOffset;
-        window.onscroll = function () {
-            var scrollCur = window.pageYOffset;
-            if (scrollPrev > scrollCur) {
-                navbar.style.top = "0";
-            } else {
-                navbar.style.top = "-90px";
-            }
-            scrollPrev = scrollCur;
-        };
+mobileMenu.addEventListener('click', () => {
+    navList.classList.toggle('active');
 
-      
+    // Toggle the mobile menu icon
+    if (navList.classList.contains('active')) {
+        mobileMenu.innerHTML = '&#10006;'; // Close icon
+        mobileMenu.style.color = '#ffffff'; // Change color to white
+        // Close the modal when mobile menu is toggled
+        modal.style.display = 'none';
+        regionModal.style.display = 'none'; // Close region modal when mobile menu is toggled
+    } else {
+        mobileMenu.innerHTML = '&#9776;'; // Menu icon
+        mobileMenu.style.color = '#ffffff'; // Default color
+    }
+});
 
-
-
-    // Add event listener for the select dropdown
-    document.getElementById('languageSelector').addEventListener('change', function () {
-        var selectedLang = this.value;
-        var url = `/${selectedLang}`;
-        
-        // Check if the selected language is "EN" to redirect to the homepage
-        if (selectedLang === 'en') {
-            url = '/';  // Redirect to the homepage for English
-        }
-
-        window.location.href = url;  // Redirect the user to the new URL
+document.addEventListener('DOMContentLoaded', function () {
+    // Open categories modal
+    categoriesButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        modal.style.display = 'block';
     });
-    // Scroll-to-top button logic
-    let mybutton = document.getElementById("myBtn");
-    window.onscroll = function() {scrollFunction()};
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
+
+    // Close categories modal on close button click
+    closeModal.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // Close categories modal on outside click
+    window.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
         }
-    }
+    });
+
+    // Open region modal
+    regionButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        regionModal.style.display = 'block';
+    });
+
+    // Close region modal on close button click
+    closeRegionModal.addEventListener('click', function () {
+        regionModal.style.display = 'none';
+    });
+
+    // Close region modal on outside click
+    window.addEventListener('click', function (e) {
+        if (e.target === regionModal) {
+            regionModal.style.display = 'none';
+        }
+    });
+});
 
 
-
-    
-   
- 
-
+// "Go to Top" button functionality
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}

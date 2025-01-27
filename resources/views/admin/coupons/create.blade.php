@@ -1,213 +1,204 @@
 @extends('admin.master')
 @section('title')
-    Create | Coupons
+Create | Coupons
 @endsection
 @section('main-content')
 <style>
 
-</style>
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Create Coupon</h1>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="content">
-      <div class="container-fluid">
-    @if(session('success'))
-        <div class="alert alert-success alert-dismissable">
-            <i class="fa fa-ban"></i>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b>{{ session('success') }}</b>
-        </div>
-    @endif
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-      <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="form-group">
-<form name="CreateCoupon" id="CreateCoupon" method="POST" action="{{ route('admin.coupon.store') }}">
-                                @csrf
-                            <label for="name">Coupon Name <span class="text-danger">*</span></label>
-           <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description <span class="text-danger">*</span></label>
-                            <textarea name="description" id="description" class="form-control" cols="20" rows="3" style="resize: none;">{{ old('description') }}</textarea>
 
-
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="toggleCodeCheckbox" onchange="toggleCodeInput(this)">
-                            <label class="form-check-label" for="toggleCodeCheckbox">Enable Code Input</label>
-                        </div>
-                        
-                        <div class="form-group" id="codeInputGroup" style="display: none;">
-                            <label for="code">Code</label>
-                            <input type="text" class="form-control" name="code" id="code" >
-                        </div>
-                                        
-                        
-                        <div class="form-group">
-                            <label for="destination_url">Destination URL <span class="text-danger">*</span></label>
-                            <input type="url" class="form-control" name="destination_url" id="destination_url" required>
-                        </div>
-
-                     <div class="form-group">
-
-</div>
-
-                        <div class="form-group">
-                            <label for="ending_date">Ending Date <span class="text-danger">*</span></label>
-                            <input type="date" class="form-control" name="ending_date" id="ending_date" required>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                    
-                        <div class="form-group d-flex align-items-center">
-                            <label for="top_coupons" class="me-2">Top Coupons Code <span class="text-danger">*</span></label>
-                            <div class="d-flex">
-                                <input type="radio" name="top_coupons" id="top_0" value="0" onclick="updateTopCoupons(0)">
-                                <label for="top_0" class="me-3">0</label>
-                        
-                                <input type="radio" name="top_coupons" id="top_1" value="1" onclick="updateTopCoupons(1)">
-                                <label for="top_1" class="me-3">1</label>
-                        
-                                <input type="radio" name="top_coupons" id="top_2" value="2" onclick="updateTopCoupons(2)">
-                                <label for="top_2" class="me-3">2</label>
-                        
-                                <input type="radio" name="top_coupons" id="top_3" value="3" onclick="updateTopCoupons(3)">
-                                <label for="top_3" class="me-3">3</label>
-                        
-                                <input type="radio" name="top_coupons" id="top_4" value="4" onclick="updateTopCoupons(4)">
-                                <label for="top_4" class="me-3">4</label>
-                        
-                                <input type="radio" name="top_coupons" id="top_5" value="5" onclick="updateTopCoupons(5)">
-                                <label for="top_5" class="me-3">5</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group d-flex align-items-center">
-                            <label for="status" class="me-2">Status <span class="text-danger">*</span></label>
-                            <div class="d-flex">
-                                <div class="form-check me-3">
-                                    <input type="radio" class="form-check-input" name="status" id="enable" value="enable" required>
-                                    <label class="form-check-label" for="enable">Enable</label>
-                                </div>
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input" name="status" id="disable" value="disable" required>
-                                    <label class="form-check-label" for="disable">Disable</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="store">Store <span class="text-danger">*</span></label>
-                            <select name="store" id="store" class="form-control" required >
-                                <option value="" disabled selected>--Select Store--</option>
-                                @foreach($stores as $store)
-                                    <option value="{{ $store->slug }}">{{ $store->slug }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="store">Language <span class="text-danger">*</span></label>
-                            <select name="language_id" id="language_id" class="form-control" required >
-                                <option value="" disabled selected>--Select Language--</option>
-                                @foreach ($langs as $lang)
-                                <option value="{{ $lang->id }}">{{ $lang->code }}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                     
-                        <div class="form-group">
-                            <label for="authentication">Authentication</label><br>
-                            
-                            <input type="radio" name="authentication" id="never expire" value="never expire">
-                            <label for="never expire">Never Expire</label><br>
-                            
-                            <input type="radio" name="authentication" id="featured" value="featured">
-                            <label for="featured">Featured</label><br>
-                            
-                            <input type="radio" name="authentication" id="free shipping" value="free shipping">
-                            <label for="free shipping">Free Shipping</label><br>
-                            
-                            <input type="radio" name="authentication" id="coupon code" value="coupon_code">
-                            <label for="coupon code">Coupon Code</label><br>
-                            
-                            <input type="radio" name="authentication" id="top deals" value="top_deals">
-                            <label for="top deals">Top Deals</label><br>
-                            
-                            <input type="radio" name="authentication" id="valentine" value="valentine">
-                            <label for="valentine">Valentine</label><br>
-                            
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="toggleOtherCheckbox" onchange="toggleOtherInput(this)">
-                                <label class="form-check-label" for="toggleOtherCheckbox">Other</label>
-                            </div>
-                            <div class="form-group" id="otherInputGroup" style="display: none;">
-                                <label for="otherAuthentication">Authentication</label>
-                                <input type="text" class="form-control" name="authentication" id="otherAuthentication" >
-                            </div>
-                          </div>
-                          
-                          
-                         
-<div class="col-12">
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a href="{{ route('admin.coupon') }}" class="btn btn-secondary">Cancel</a>
-</div>       
-                     
-                    </div>
-                </div>
-            </div>
-          
-        </div>
-    </form>
-
-</div>
-
-    </section>
-</div>
-    <script>
-
-function toggleOtherInput(checkboxElement) {
-    const otherInputGroup = document.getElementById('otherInputGroup');
-    
-    if (checkboxElement.checked) {
-        otherInputGroup.style.display = 'block'; // Show the input field
-    } else {
-        otherInputGroup.style.display = 'none'; // Hide the input field
-    }
+.radio-container,
+.checkbox-container {
+display: flex;
+flex-wrap: wrap;
+gap: 15px; /* Adjust spacing between items within each group */
+align-items: center;
 }
 
-    function toggleCodeInput(checkboxElement) {
-        const codeInputGroup = document.getElementById('codeInputGroup');
-        
-        if (checkboxElement.checked) {
-            codeInputGroup.style.display = 'block'; // Show the input field
-        } else {
-            codeInputGroup.style.display = 'none'; // Hide the input field
-        }
-    }
+.radio-container input[type="radio"],
+.checkbox-container input[type="checkbox"] {
+margin-right: 5px; /* Adjust spacing between the input and label */
+}
+
+</style>
+<div class="content-wrapper">
+<section class="content-header">
+<div class="container-fluid">
+<div class="row mb-2">
+<div class="col-sm-6">
+<h1>Create Coupon</h1>
+</div>
+</div>
+</div>
+</section>
+<section class="content">
+<div class="container-fluid">
+@if(session('success'))
+<div class="alert alert-success alert-dismissable">
+<i class="fa fa-ban"></i>
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+<b>{{ session('success') }}</b>
+</div>
+@endif
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<div class="form-group">
+<form name="CreateCoupon" id="CreateCoupon" method="POST" action="{{ route('admin.coupon.store') }}">
+@csrf
+<div class="row">
+<div class="col-6">
+<div class="card">
+<div class="card-body">
+<div class="form-group">
+<label for="name">Coupon Name <span class="text-danger">*</span></label>
+<input type="text" class="form-control" name="name" id="name" value="{{ old('name', request()->input('name')) }}" required>
+</div>
+<div class="form-group">
+<label for="description">Description <span class="text-danger">*</span></label>
+<textarea name="description" id="description" class="form-control" cols="20" rows="3" style="resize: none;">{{ old('description') }}</textarea>
+</div>
+<div class="form-check">
+<input type="checkbox" class="form-check-input" id="toggleCodeCheckbox" onchange="toggleCodeInput(this)">
+<label class="form-check-label" for="toggleCodeCheckbox">Enable Code Input</label>
+</div>
+<div class="form-group" id="codeInputGroup" style="display: none;">
+<label for="code">Code</label>
+<input type="text" class="form-control" name="code" id="code" value="{{ old('code') }}">
+</div>
+
+<div class="form-group">
+<label for="destination_url">Destination URL <span class="text-danger">*</span></label>
+<input type="url" class="form-control" name="destination_url" id="destination_url" value="{{ old('destination_url') }}" required>
+</div>
+<div class="form-group">
+<label for="ending_date">Ending Date <span class="text-danger">*</span></label>
+<input type="date" class="form-control" name="ending_date" id="ending_date" value="{{ old('ending_date') }}" required>
+</div>
+
+</div>
+</div>
+</div>
+<div class="col-6">
+<div class="card">
+<div class="card-body">
+<div class="form-group">
+<label for="lang">Language <span class="text-danger">*</span></label>
+<select name="language_id" id="language_id" class="form-control" required>
+<option disabled selected>--Select Langs--</option>
+@foreach ($langs as $lang)
+<option value="{{ $lang->id }}" {{ old('language_id') == $lang->id ? 'selected' : '' }}>
+{{ $lang->code }}
+</option>
+@endforeach
+</select>
+</div>
+<div class="form-group">
+<label for="top_coupons">Top Coupons Code <span class="text-danger">*</span></label><br>
+@for ($i = 0; $i <= 5; $i++)
+<input type="radio" name="top_coupons" id="top_{{ $i }}" value="{{ $i }}" {{ old('top_coupons') == $i ? 'checked' : '' }}>
+<label for="top_{{ $i }}">{{ $i }}</label>
+@endfor
+</div>
+<div class="form-group">
+<label for="status">Status <span class="text-danger">*</span></label><br>
+<div class="radio-container">
+<input type="radio" name="status" id="enable" value="enable" {{ old('status') == 'enable' ? 'checked' : '' }} required>
+<label for="enable">Enable</label>
+<input type="radio" name="status" id="disable" value="disable" {{ old('status') == 'disable' ? 'checked' : '' }} required>
+<label for="disable">Disable</label>
+</div>
+<label for="authentication">Authentication</label><br>
+<div class="checkbox-container">
+@foreach (['never expire', 'featured', 'free shipping', 'coupon code', 'top deals', 'valentine'] as $auth)
+<input type="radio" name="authentication" id="{{ $auth }}" value="{{ $auth }}" 
+{{ old('authentication') === $auth ? 'checked' : '' }}>
+<label for="{{ $auth }}">{{ ucfirst(str_replace('_', ' ', $auth)) }}</label>
+@endforeach
+
+<!-- Other Option -->
+<div class="form-check">
+<input type="radio" class="form-check-input" name="authentication" id="toggleOtherCheckbox" value="other" 
+{{ old('authentication') === 'other' ? 'checked' : '' }} onchange="toggleOtherInput(this)">
+<label class="form-check-label" for="toggleOtherCheckbox">Other</label>
+</div>
+
+<!-- Hidden Input for Other -->
+<div class="form-group" id="otherInputGroup" style="display: none;">
+<label for="otherAuthentication">Please specify</label>
+<input type="text" class="form-control" name="other_authentication" id="otherAuthentication" 
+value="{{ old('other_authentication') }}">
+</div>
+</div>
+
+
+
+
+</div>
+
+<div class="form-group">
+<label for="store">Store <span class="text-danger">*</span></label>
+<select name="store" id="store" class="form-control" onchange="updateDestinationUrl()">
+<option value="" disabled selected>--Select Store--</option>
+@foreach($stores as $store)
+<option value="{{ $store->slug }}" data-url="{{ $store->destination_url }}" 
+{{ old('store') == $store->slug ? 'selected' : '' }}>
+{{ $store->slug }}
+</option>
+@endforeach
+</select>
+</div>
+
+
+
+<div class="col-6">
+<button type="submit" class="btn btn-primary">Save</button>
+<button type="reset" class=" btn  btn-lisght">Reset</button>
+<a href="{{ route('admin.coupon') }}" class="btn btn-secondary">Cancel</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</form>
+
+</div>
+
+</section>
+</div>
+
+
+<script>
+
+function toggleOtherInput(checkboxElement) {
+const otherInputGroup = document.getElementById('otherInputGroup');
+
+if (checkboxElement.checked) {
+otherInputGroup.style.display = 'block'; // Show the input field
+} else {
+otherInputGroup.style.display = 'none'; // Hide the input field
+}
+}
+function toggleCodeInput(checkboxElement) {
+const codeInputGroup = document.getElementById('codeInputGroup');
+
+if (checkboxElement.checked) {
+codeInputGroup.style.display = 'block'; // Show the input field
+} else {
+codeInputGroup.style.display = 'none'; // Hide the input field
+}
+}
 </script>
 
 

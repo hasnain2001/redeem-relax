@@ -147,7 +147,9 @@ public function StoreDetails($name)
         ]);
     
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Store Created Successfully');
+        return redirect()->back()->withinput()->with('success', 'Store Created Successfully');
+        
+        
     }
     
 
@@ -254,7 +256,7 @@ public function StoreDetails($name)
             ]);
     
             // Delete associated coupons with the same store name
-            Coupons::where('store', $store->name)->delete();
+            Coupons::where('store', $store->slug)->delete();
     
             // Delete the store (soft delete if the SoftDeletes trait is used)
             $store->delete();
@@ -265,17 +267,35 @@ public function StoreDetails($name)
         return redirect()->back()->with('error', 'Store not found.');
     }
 
+ 
     public function deleteSelected(Request $request)
-    {
-        $storeIds = $request->input('selected_stores');
+{
+    // Get selected store IDs from the request
+    $storeIds = $request->input('selected_stores');
 
-        if ($storeIds) {
-            // Delete only the stores
-            Stores::whereIn('id', $storeIds)->delete();
+    if ($storeIds) {
+        // Find the stores by IDs
+        $stores = Stores::whereIn('id', $storeIds)->get();
 
-            return redirect()->back()->with('success', 'Selected stores deleted successfully');
-        } else {
-            return redirect()->back()->with('error', 'No stores selected for deletion');
+        foreach ($stores as $store) {
+            // Log the store deletion attempt in the delete_store table
+            DeleteStore::create([
+                'store_id' => $store->id,
+                'store_name' => $store->name,
+                'deleted_by' => Auth::id(),
+            ]);
+
+            // Delete associated coupons with the same store name
+            Coupons::where('store', $store->slug)->delete();
+
+            // Delete the store (soft delete if the SoftDeletes trait is used)
+            $store->delete();
         }
+
+        return redirect()->back()->with('success', 'Selected stores and their associated coupons deleted successfully.');
+    } else {
+        return redirect()->back()->with('error', 'No stores selected for deletion.');
     }
+}
+
 }

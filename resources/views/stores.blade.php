@@ -86,7 +86,7 @@ header("X-Robots-Tag:index, follow");
         @endforelse
     </div>
 
-    {{$stores->links('vendor.pagination.bootstrap-5')  }}
+    {{$stores->links('vendor.pagination.custom')  }}
 </div>
 
 

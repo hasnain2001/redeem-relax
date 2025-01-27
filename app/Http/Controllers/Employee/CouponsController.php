@@ -88,7 +88,7 @@ public function update(Request $request)
     }
 }
     public function create_coupon() {
-        $stores = Stores::all();
+        $stores = Stores::orderBy('created_at','desc')->get();
         $langs = Language::all();
         return view('employee.coupons.create', compact('stores','langs'));
     }
@@ -106,8 +106,8 @@ public function update(Request $request)
             'code' => 'nullable|string|max:100',
             'destination_url' => 'nullable|url',
             'ending_date' => 'nullable|date|after_or_equal:today',
-            'authentication' => 'nullable|array',
-            'authentication.*' => 'string',
+            'authentication' => 'nullable|string',
+            // 'authentication.*' => 'string',
             'store' => 'nullable|string|max:255',
             'top_coupons' => 'nullable|integer|min:0',
         ]);
@@ -121,12 +121,12 @@ public function update(Request $request)
             'destination_url' => $request->destination_url,
             'ending_date' => $request->ending_date,
             'status' => $request->status,
-            'authentication' => isset($request->authentication) ? json_encode($request->authentication) : "No Auth",
+            'authentication' => $request->authentication ?? "Coupons DEALS",
             'store' => $request->store ,
             'top_coupons' => $request->top_coupons,
         ]);
 
-        return redirect()->back()->with('success', 'Coupon Created Successfully');
+        return redirect()->back()->withInput()->with('success', 'Coupon Created Successfully');
     }
 
 

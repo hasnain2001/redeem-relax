@@ -13,6 +13,24 @@
     label {
         font-weight: bold; /* Makes the label text bold */
     }
+    .form-group-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Adjust spacing between "Status" and "Top Coupon" groups */
+    align-items: flex-start;
+}
+
+.radio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust spacing between individual radio buttons */
+    align-items: center;
+}
+
+.radio-container input[type="radio"] {
+    margin-right: 5px; /* Adjust spacing between radio button and its label */
+}
+
 </style>
 <div class="content-wrapper">
     <section class="content-header">
@@ -81,48 +99,31 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="status">Status <span class="text-danger">*</span></label><br>
-                                    <input type="radio" name="status" id="enable" {{ $coupons->status == 'enable' ? 'checked' : '' }} value="enable">&nbsp;<label for="enable">Enable</label>
-                                    <input type="radio" name="status" id="disable" {{ $coupons->status == 'disable' ? 'checked' : '' }} value="disable">&nbsp;<label for="disable">Disable</label>
+                                <div class="form-group-container">
+                                    <div class="form-group">
+                                        <label for="status">Status <span class="text-danger">*</span></label><br>
+                                        <div class="radio-container">
+                                            <input type="radio" name="status" id="enable" {{ $coupons->status == 'enable' ? 'checked' : '' }} value="enable">
+                                            <label for="enable">Enable</label>
+                                            <input type="radio" name="status" id="disable" {{ $coupons->status == 'disable' ? 'checked' : '' }} value="disable">
+                                            <label for="disable">Disable</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="top_coupons">Top Coupon <span class="text-danger">*</span></label><br>
+                                        <div class="radio-container">
+                                            @for ($i = 0; $i <= 5; $i++)
+                                                <input type="radio" name="top_coupons" id="top_{{ $i }}" value="{{ $i }}" onclick="updateTopCoupons({{ $i }})"
+                                                    {{ $coupons->top_coupons == $i ? 'checked' : '' }}>
+                                                <label for="top_{{ $i }}">{{ $i }}</label>
+                                            @endfor
+                                            <input type="hidden" name="top_coupons_hidden" id="top_coupons_hidden">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="top_coupons">Top Coupon <span class="text-danger">*</span></label><br>
-
-                                    <input type="radio" name="top_coupons" id="top_0" value="0"
-                                        onclick="updateTopCoupons(0)"
-                                        {{ $coupons->top_coupons == 0 ? 'checked' : '' }}>
-                                    <label for="top_0">0</label>
-
-                                    <input type="radio" name="top_coupons" id="top_1" value="1"
-                                        onclick="updateTopCoupons(1)"
-                                        {{ $coupons->top_coupons == 1 ? 'checked' : '' }}>
-                                    <label for="top_1">1</label>
-
-                                    <input type="radio" name="top_coupons" id="top_2" value="2"
-                                        onclick="updateTopCoupons(2)"
-                                        {{ $coupons->top_coupons == 2 ? 'checked' : '' }}>
-                                    <label for="top_2">2</label>
-
-                                    <input type="radio" name="top_coupons" id="top_3" value="3"
-                                        onclick="updateTopCoupons(3)"
-                                        {{ $coupons->top_coupons == 3 ? 'checked' : '' }}>
-                                    <label for="top_3">3</label>
-
-                                    <input type="radio" name="top_coupons" id="top_4" value="4"
-                                        onclick="updateTopCoupons(4)"
-                                        {{ $coupons->top_coupons == 4 ? 'checked' : '' }}>
-                                    <label for="top_4">4</label>
-
-                                    <input type="radio" name="top_coupons" id="top_5" value="5"
-                                        onclick="updateTopCoupons(5)"
-                                        {{ $coupons->top_coupons == 5 ? 'checked' : '' }}>
-                                    <label for="top_5">5</label>
-                                    <input type="hidden" name="top_coupons_hidden" id="top_coupons_hidden">
-                                </div>
-
+                                
                               
-                                <div class="form-group">
+                                <div class="form-group d-inline ">
                                     <label for="authentication">Authentication</label><br>
                                     
                                     <input type="radio" name="authentication" 
@@ -136,8 +137,8 @@
                                     
                                     <input type="radio" name="authentication" 
                                            {{ ($coupons->authentication === 'free shipping') ? 'checked' : '' }} 
-                                           id="free shipping" value="free shipping">&nbsp;
-                                    <label for="free shipping">Free Shipping</label><br>
+                                           id="free_shipping" value="free shipping">&nbsp;
+                                    <label for="free_shipping">Free Shipping</label><br>
                                     
                                     <input type="radio" name="authentication" 
                                            {{ ($coupons->authentication === 'coupon code') ? 'checked' : '' }} 

@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\StoresController;
 use App\Http\Controllers\admin\CouponsController;
 use App\Http\Controllers\admin\NetworksController;
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\DeleteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -17,11 +18,14 @@ Route::middleware([RoleMiddleware::class])->group(function () {
     Route::controller(AdminController::class)->name('admin.')->group(function () {
         Route::get('/admin/dashboard', 'dashboard')->name('dashboard');
         Route::get('/admin/users', 'index')->name('user.index');
-        Route::get('/admin/delete-store', 'deletedStores')->name('delete_store');
         Route::get('/user/edit/{id}', 'edit_user')->name('user.edit');
         Route::post('/user/update/{id}', 'update_user')->name('user.update');
         Route::delete('/users/{id}',  'destroy')->name('user.destroy');
-        });
+    });
+        Route::controller(DeleteController::class)->name('admin.')->group(function () {
+        Route::get('/admin/delete-store', 'deletedStores')->name('delete_store');
+        Route::get('/admin/delete-store/delete{id}', 'delete')->name('delete-store-delete');
+    });
   // Stores Routes Begin
    Route::controller(LanguageController::class)->prefix('admin')->group(function () {
     Route::get('/lang', 'language')->name('admin.lang');
@@ -59,7 +63,7 @@ Route::middleware([RoleMiddleware::class])->group(function () {
         Route::get('/stores/{slug}', 'StoreDetails')->name('store_details');
       
     });
-    Route::post('/check-slug',[StoresController::class, 'checkSlug'] )->name('check.slug');
+ 
 
 
     // Categories Routes Begin

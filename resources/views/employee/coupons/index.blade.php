@@ -56,6 +56,7 @@
             <th>Coupon Name</th>
             <th>Store</th>
             <th>Deal/Code</th>
+            <th>Auth</th>
             <th>Status</th>
             <th>create at</th>
             <th>Last Updated</th>
@@ -70,13 +71,12 @@
                 <td class="pl-3"><i class="fa fa-sort"></i></td>
                 <td>{{ $coupon->name }}</td>
                 <td>{{ $coupon->store }}</td>
-                <td>
-               @if ($coupon->code)
-<span>Code</span>
-               @else
+<td> @if ($coupon->code)<span>Code</span>
+@else
 <span>Deal</span>
-               @endif
-                </td>
+@endif
+</td>
+<td>{{ $coupon->authentication }}</td>
                 <td>
                    @if ($coupon->status == "disable")
                         <i class="fa fa-fw fa-times-circle" style="color: blue;"></i>
@@ -109,7 +109,8 @@
             <th width="30px">#</th>
             <th>Coupon Name</th>
             <th>Store</th>
-            <th>Never Expire</th>
+            <th>Deal / Code </th>
+            <th>Auth</th>
             <th>Status</th>
             <th>created at</th>
             <th>Last Updated</th> <!-- Add this column footer -->

@@ -10,7 +10,7 @@
     <br>
     <footer>
         <div class="footer-container">
-            <div class="col-md-1  col-sm-2text-center">
+            <div class="col-md-1  col-sm-2 text-center">
                 <a href="{{ url(app()->getLocale() . '/') }}">
                     <img src="{{ asset('images/logo.png') }}" class="footerimg " alt="Logo">
                 </a>

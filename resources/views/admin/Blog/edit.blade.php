@@ -63,19 +63,19 @@
 
                                  <div class="form-group">
                                     <label for="name">Meta Title<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="meta_title" id="meta_title" >
+                                    <input type="text" class="form-control" name="meta_title" id="meta_title" value="{{ $blog->meta_title }}" >
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="meta_tag">Meta Tag <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="meta_tag" id="meta_tag">
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="meta_keyword">Meta Keyword <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="meta_keyword" id="meta_keyword">
+                                    <input type="text" class="form-control" name="meta_keyword" id="meta_keyword" value="{{ $blog->meta_keyword }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="meta_description">Meta Description</label>
-                                    <textarea name="meta_description" id="meta_description" class="form-control" cols="30" rows="5" style="resize: none;"></textarea>
+                                    <textarea name="meta_description" id="meta_description" class="form-control" cols="30" rows="5" style="resize: none;">{{ $blog->meta_description }}</textarea>
                                 </div>
                                                                 <button type="submit" class="btn btn-dark">Submit</button>
                             </div>

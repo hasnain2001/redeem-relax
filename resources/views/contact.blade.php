@@ -24,7 +24,7 @@ header("X-Robots-Tag:index, follow");
 </head>
 <body>
 @include('components.navbar')
-<section class="contact-us py-5">
+<section class="contact-us py-5  text-capitalize ">
   <div class="container">
     <nav aria-label="breadcrumb" style="background-color: #f8f9fa; border-radius: 0.25rem; padding: 10px;">
         <ol class="breadcrumb mb-0">
@@ -71,7 +71,12 @@ header("X-Robots-Tag:index, follow");
               <textarea class="form-control" id="message" name="message" rows="8" required></textarea>
             </div>
           </div>
-          <button type="submit" class="btn btn-dark btn-lg">@lang('message.Submit')</button>
+          <div class="col-10 mb-3">
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-dark btn-lg">@lang('message.Submit')</button>
+          </div>
+        </div>
+      
         </form>
       </div>
       <div class="col-5 mt-4">

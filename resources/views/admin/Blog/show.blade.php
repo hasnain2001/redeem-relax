@@ -73,11 +73,9 @@
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $blog->title }}</td>
                             <td>
-                                @if ($blog->category_image)
+                            
                                     <img src="{{ asset($blog->category_image) }}" alt="Category Image" class="img-thumbnail" style="max-width: 80px;">
-                                @else
-                                    <span class="badge badge-secondary">No Image</span>
-                                @endif
+                            
                             </td>
                             <td>
                                 <a href="{{ route('admin.blog.edit', $blog->id) }}" class="btn btn-sm btn-primary">Edit</a>

@@ -131,7 +131,7 @@ public function update(Request $request)
             'top_coupons' => $validatedData['top_coupons'] ?? 0,
         ]);
     
-        return redirect()->back()->with('success', 'Coupon Created Successfully');
+        return redirect()->back()->withInput()->with('success', 'Coupon Created Successfully');
     }
     
 
@@ -182,7 +182,7 @@ public function update(Request $request)
             return redirect($url)->with('success', 'Coupon Updated Successfully');
         }
     
-        return redirect()->back()->with('error', 'Store not found.');
+        return redirect()->back()->withInput()->with('error', 'Store not found.');
     }
     
     

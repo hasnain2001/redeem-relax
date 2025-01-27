@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class CategoriesController extends Controller
 {
@@ -23,7 +24,12 @@ class CategoriesController extends Controller
         ]);
     }
     public function category() {
-        $categories = Categories::all();
+        $categories = Cache::remember('categories', 60, function () {
+            return Categories::select('id', 'title', 'created_at','category_image') // Specify the columns you need
+                             ->orderBy('created_at', 'desc')
+                             ->get();
+        });
+        
         return view('admin.categories.index', compact('categories'));
     }
 
