@@ -14,6 +14,7 @@ use App\Http\Middleware\Normalization;
 use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\SitemapController;
 
 // Admin routes
 Route::middleware([RoleMiddleware::class])->group(function () {
@@ -28,6 +29,9 @@ Route::middleware([RoleMiddleware::class])->group(function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/generate-sitemap', [SitemapController::class, 'generate']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

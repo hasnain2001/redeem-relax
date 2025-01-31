@@ -126,7 +126,7 @@ public function update(Request $request)
             'destination_url' => $validatedData['destination_url'] ?? null,
             'ending_date' => $validatedData['ending_date'] ?? null,
             'status' => $validatedData['status'] ?? 'inactive',
-            'authentication' => $request->input('authentication'),
+            'authentication' => $request->input('authentication' ?? "Coupons DEALS"),
             'store' => $validatedData['store'] ?? null,
             'top_coupons' => $validatedData['top_coupons'] ?? 0,
         ]);
@@ -169,7 +169,7 @@ public function update(Request $request)
             'destination_url' => $request->input('destination_url', $coupons->destination_url),
             'ending_date' => $request->input('ending_date', $coupons->ending_date),
             'status' => $request->input('status', $coupons->status),
-           'authentication' => $request->input('authentication'),
+           'authentication' => $request->authentication ?? "Coupons DEALS",
             'store' => $request->input('store', $coupons->store),
             'top_coupons' => $request->input('top_coupons', $coupons->top_coupons),
         ]);

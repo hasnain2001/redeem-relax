@@ -12,6 +12,13 @@
         z-index: 1000;
         transition: top 0.3s, background-color 0.3s ease;
     }
+    body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+
 h1{
     color:#ffffff ;
 }
@@ -33,6 +40,7 @@ h1{
         flex-grow: 1;
         justify-content: center;
         transition: all 0.5s ease;
+        align-items: center;
     }
 
     .nav-list li {
@@ -48,8 +56,7 @@ h1{
         font-size: 1vw;
         padding: 10px 10px;
         transition: all 0.3s ease;
-       
-    }
+           }
 
     .nav-list a:hover {
         background: transparent;
@@ -80,6 +87,7 @@ h1{
         display: none;
         color: white;
         position: absolute;
+
         right: 20px;
     }
     #nav-list.active #mobile-menu {
@@ -104,6 +112,7 @@ h1{
         width: 350px;
         height: auto;
         transition: width 0.3s ease;
+        padding-left: 20px;
     }
 
     .search-container input:focus {
@@ -126,6 +135,12 @@ h1{
 
     /* Mobile Responsive Styles */
     @media (max-width: 768px) {
+        .logo-mb img {
+            width: 100px;
+            height: auto;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
         .logo img {
             width: 70px;
             height: auto;
@@ -161,6 +176,8 @@ h1{
             transition: 0.5s ease-out;
             display: flex;
             justify-content: center;
+            align-items: flex-start;
+            
         }
 
         .nav-list.active {
@@ -173,6 +190,7 @@ h1{
             opacity: 0;
             transform: translateY(-20px);
             animation: slideIn 0.5s forwards;
+            /* text-align: left; */
         }
 
         .nav-list li:nth-child(1) {
@@ -249,9 +267,10 @@ h1{
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
-    overflow: auto;
+    height: 800px;
+    overflow: scroll;
     background-color: rgba(0, 0, 0, 0.8);
+
 }
 
 .modal-content {
@@ -259,16 +278,23 @@ h1{
     margin: 15% auto;
     padding: 20px;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
     color: white;
     max-width: 400px;
+    max-height: 90vh; /* Prevents excessive height */
+    overflow-y: auto; /* Enables scrolling */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    scrollbar-width: thin; /* Makes scrollbar thinner */
+    scrollbar-color: #ccc transparent; /* Scrollbar color */
+  
 }
 
 .close-modal {
     color: #fcfcfc;
     float: right;
-    font-size: 20px;
+    font-size: 50px;
     cursor: pointer;
+  
 }
 
 .categories-list a {
@@ -277,11 +303,13 @@ h1{
     border-bottom: 1px solid #ccc;
     text-decoration: none;
     color: #f5f5f5;
+    
+  
 }
 
 .categories-list a:hover {
     background-color:transparent;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 #categories-button {
@@ -292,7 +320,7 @@ h1{
 
 #categories-button i {
     font-size: 16px; /* Adjust size */
-    margin-left: 5px; /* Add space between text and icon */
+    margin-left: 285px; /* Pushes the icon to the right */
     color: #ffffff; /* Change color if needed */
 }
 #region-modal {
@@ -307,15 +335,17 @@ h1{
 }
 #region-button {
     display: flex;
-    justify-content: space-between; /* Ensure the text and icon are spaced */
-    align-items: center; /* Vertically align the text and icon */
+    align-items: center;
+    gap: 5px; /* Ensures spacing between text and icon */
+    flex-direction: row; /* Ensures text is first, icon is second */
 }
 
 #region-button i {
     font-size: 16px; /* Adjust size */
-    margin-left: 5px; /* Add space between text and icon */
+    margin-left: 350px; /* Pushes the icon to the right */
     color: #ffffff; /* Change color if needed */
 }
+
 
 
 @media (min-width: 769px) {
@@ -354,7 +384,7 @@ h1{
 
     .close-region-modal {
         color: white;
-        font-size: 20px;
+        font-size: 50px;
         cursor: pointer;
         float: right;
     }

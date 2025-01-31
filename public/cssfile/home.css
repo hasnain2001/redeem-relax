@@ -3,6 +3,7 @@ body{
     padding: 0;
 }
 .slider-image {
+    margin-top: 20px;
     height: 300px; /* Default height for large screens */
     width: 100%; /* Ensure the image takes full width of the container */
     border: 15px solid rgb(138, 17, 207);
@@ -140,9 +141,24 @@ nav {
 .modal-content {
     background: #f7f7f7;
 }
-.title {
+.heading {
     color: #050607;
+    font-size: 34px; /* Larger and more readable on desktop */
+    font-weight: 400; /* Make it stand out */
+    text-transform: uppercase; /* Stylish uppercase */
+    text-align: center; /* Center the text */
+    letter-spacing: 1px; /* Spaced letters for a sleek look */
 }
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .heading {
+        font-size: 16px; /* Adjust for smaller screens */
+        color: #333; /* Slightly lighter for better contrast */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    }
+}
+
 .top-store-name {
     color: #1e1e1f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

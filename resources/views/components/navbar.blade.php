@@ -15,7 +15,9 @@
         </div>
       
         <ul class="nav-list" id="nav-list">
-         
+            <div class="logo-mb d-block d-sm-none">
+                <a href="/">  <img src="{{ asset('images/logo.png') }}" alt="Logo" loading="lazy"></a>
+            </div>
             <li><a href="{{ url(app()->getLocale() . '/') }}">@lang('message.home')</a></li>
             <li><a href="{{ url(app()->getLocale() . '/stores') }}">Stores</a></li>
             <li class="mega-dropdown d-none d-sm-block">
@@ -57,7 +59,7 @@
       
          <li class="d-block d-sm-none">
             <a href="#" id="region-button">
-                Region <i class="fas fa-chevron-down"></i>
+                {{ strtoupper(app()->getLocale()) }}  <i class="fas fa-chevron-down"></i>
             </a>
         </li>
         
@@ -65,7 +67,7 @@
         <div id="region-modal" class="modal">
             <div class="modal-content">
                 <span class="close-region-modal">&times;</span>
-                <h3>Region</h3>
+                <h3>{{ strtoupper(app()->getLocale()) }} </h3>
                 <div class="categories-list">
                     <div class="row">
                         @foreach ($langs as $lang)
@@ -94,12 +96,12 @@
     </div>
 
  <li class="nav-item dropdown list-unstyled  d-none d-sm-block">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ strtoupper($currentLang) }}
+    <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ strtoupper(app()->getLocale()) }} 
     </a>
     <ul class="dropdown-menu text-center shadow" aria-labelledby="navbarDropdown" style="min-width: auto;">
         @foreach ($langs as $lang)
-            <li>
+            <li class="">
                 <a href="{{ url('/' . $lang->code) }}" class="dropdown-item text-dark">
                     {{ strtoupper($lang->code) }}
                 </a>

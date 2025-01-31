@@ -40,11 +40,8 @@ Route::middleware([SetLocale::class])->group(function () {
  
     Route::get('/{lang?}', 'index')->name('home');
     Route::get('/{lang}/stores', 'stores')->name('store.show');
-    Route::get('store/{slug}', function($slug) {
-    return app(HomeController::class)->StoreDetails('en', $slug, request());
-    })->name('store_details');
+    Route::get('store/{slug}', function($slug) {return app(HomeController::class)->StoreDetails('en', $slug, request());})->name('store_details');
     Route::get('/{lang}/store/{slug}', [HomeController::class, 'StoreDetails'])->name('store_details.withLang');
-
 
     Route::get('/category/{slug}', [HomeController::class, 'viewcategory'])->name('related_category');
     Route::get('/categories', 'categories')->name('categories');

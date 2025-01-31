@@ -1,81 +1,90 @@
 let lastScrollY = window.scrollY;
-const navbar = document.getElementById('navbar');
-const mobileMenu = document.getElementById('mobile-menu');
-const navList = document.getElementById('nav-list');
-const categoriesButton = document.getElementById('categories-button');
-const modal = document.getElementById('categories-modal');
-const closeModal = document.querySelector('.close-modal');
-const regionButton = document.getElementById('region-button');
-const regionModal = document.getElementById('region-modal');
-const closeRegionModal = document.querySelector('.close-region-modal'); // Add a specific close button for region modal
+const navbar = document.getElementById("navbar");
+const mobileMenu = document.getElementById("mobile-menu");
+const navList = document.getElementById("nav-list");
+const categoriesButton = document.getElementById("categories-button");
+const modal = document.getElementById("categories-modal");
+const closeModal = document.querySelector(".close-modal");
+const regionButton = document.getElementById("region-button");
+const regionModal = document.getElementById("region-modal");
+const closeRegionModal = document.querySelector(".close-region-modal");
 
-window.addEventListener('scroll', () => {
-    // If scrolling down, hide the navbar by setting top to '-100%'
+// Disable scrolling when menu is open
+function disableScroll() {
+    document.body.classList.add("no-scroll");
+}
+
+// Enable scrolling when menu is closed
+function enableScroll() {
+    document.body.classList.remove("no-scroll");
+}
+
+// Handle Navbar Hide on Scroll Down & Show on Scroll Up
+window.addEventListener("scroll", () => {
     if (window.scrollY > lastScrollY) {
-        navbar.style.top = '-100%'; // Completely hide the navbar
+        navbar.style.top = "-100%"; // Hide navbar when scrolling down
     } else {
-        navbar.style.top = '0'; // Show the navbar when scrolling up
+        navbar.style.top = "0"; // Show navbar when scrolling up
     }
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
     lastScrollY = window.scrollY;
 });
 
-mobileMenu.addEventListener('click', () => {
-    navList.classList.toggle('active');
+// Toggle Mobile Menu
+mobileMenu.addEventListener("click", () => {
+    const isActive = navList.classList.toggle("active");
 
-    // Toggle the mobile menu icon
-    if (navList.classList.contains('active')) {
-        mobileMenu.innerHTML = '&#10006;'; // Close icon
-        mobileMenu.style.color = '#ffffff'; // Change color to white
-        // Close the modal when mobile menu is toggled
-        modal.style.display = 'none';
-        regionModal.style.display = 'none'; // Close region modal when mobile menu is toggled
+    if (isActive) {
+        mobileMenu.innerHTML = "&#10006;"; // Show close icon
+        mobileMenu.style.color = "#ffffff"; // Change color to white
+        disableScroll(); // Prevent scrolling when menu is open
     } else {
-        mobileMenu.innerHTML = '&#9776;'; // Menu icon
-        mobileMenu.style.color = '#ffffff'; // Default color
+        mobileMenu.innerHTML = "&#9776;"; // Show menu icon
+        mobileMenu.style.color = "#ffffff"; // Default color
+        enableScroll(); // Enable scrolling when menu is closed
     }
+
+    // Close modals if menu is toggled
+    modal.style.display = "none";
+    regionModal.style.display = "none";
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Open categories modal
-    categoriesButton.addEventListener('click', function (e) {
+document.addEventListener("DOMContentLoaded", function () {
+    // Open Categories Modal
+    categoriesButton.addEventListener("click", function (e) {
         e.preventDefault();
-        modal.style.display = 'block';
+        modal.style.display = "block";
     });
 
-    // Close categories modal on close button click
-    closeModal.addEventListener('click', function () {
-        modal.style.display = 'none';
+    // Close Categories Modal
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
     });
 
-    // Close categories modal on outside click
-    window.addEventListener('click', function (e) {
+    // Close Categories Modal on Outside Click
+    window.addEventListener("click", function (e) {
         if (e.target === modal) {
-            modal.style.display = 'none';
+            modal.style.display = "none";
         }
     });
 
-    // Open region modal
-    regionButton.addEventListener('click', function (e) {
+    // Open Region Modal
+    regionButton.addEventListener("click", function (e) {
         e.preventDefault();
-        regionModal.style.display = 'block';
+        regionModal.style.display = "block";
     });
 
-    // Close region modal on close button click
-    closeRegionModal.addEventListener('click', function () {
-        regionModal.style.display = 'none';
+    // Close Region Modal
+    closeRegionModal.addEventListener("click", function () {
+        regionModal.style.display = "none";
     });
 
-    // Close region modal on outside click
-    window.addEventListener('click', function (e) {
+    // Close Region Modal on Outside Click
+    window.addEventListener("click", function (e) {
         if (e.target === regionModal) {
-            regionModal.style.display = 'none';
+            regionModal.style.display = "none";
         }
     });
 });
 
 
-// "Go to Top" button functionality
-function topFunction() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}

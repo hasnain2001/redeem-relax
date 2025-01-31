@@ -72,7 +72,7 @@
 <div class="conatain">
 <div class="row mb-4">
 <div class="col-12">
-<h1 class=" title text-center ">@lang('message.Trending Promo Codes To Save Everyday')</h1>
+<h1 class=" heading text-center ">@lang('message.Trending Promo Codes To Save Everyday')</h1>
 <hr>
 </div>
 </div>
@@ -201,38 +201,34 @@ Ends: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 <div class="container mt-5">
 <h3 class="mb-4 title text-center">@lang('message.Popular Stores Today')</h3>
 <div class="row justify-content-center">
-<div class="col-md-12 card">
-<div class="row row-cols-2 row-cols-md-6 g-3"> <!-- Using row-cols-2 to adjust columns for smaller screens -->
+<div class="col-md-12 card" style="padding: 20px">
+<div class="row row-cols-2 row-cols-md-6 g-3"> <!-- Added g-3 for equal gaps -->
 @foreach ($stores as $store)
-<div class="col mb-4">
-  @php
-  $language = $store->language->code;
-  $storeSlug = Str::slug($store->slug);
+<div class="col">
+@php
+    $language = $store->language->code;
+    $storeSlug = Str::slug($store->slug);
 
-  // Conditionally generate the URL based on the language
-  $storeurl = $store->slug
-      ? ($language === 'en'
-          ? route('store_details', ['slug' => $storeSlug])  // English route without 'lang'
-          : route('store_details.withLang', ['lang' => $language, 'slug' => $storeSlug]))  // Other languages
-      : '#';
+    // Conditionally generate the URL based on the language
+    $storeurl = $store->slug
+        ? ($language === 'en'
+            ? route('store_details', ['slug' => $storeSlug])  // English route without 'lang'
+            : route('store_details.withLang', ['lang' => $language, 'slug' => $storeSlug]))  // Other languages
+        : '#';
 @endphp
-{{-- <a href="{{ route('stores', ['lang' => $store->language->code, 'id' => $store->id]) }}">
-  {{ $store->name }}
-</a> --}}
+
 <a href="{{ $storeurl }}" class="card-link text-decoration-none">
-        <div class="card-body card-body-store d-flex justify-content-center align-items-center">
-            <span class="top-store-name text-center text-truncate">{{ $store->name }}</span> <!-- Added text-truncate for long names -->
-        </div>
-    </a>
+<div class="card-body card-body-store d-flex justify-content-center align-items-center">
+<span class="top-store-name text-center text-truncate">{{ $store->name }}</span> <!-- Added text-truncate for long names -->
 </div>
-
+</a>
+</div>
 @endforeach
+</div>
+</div>
+</div>
+</div>
 
-
-</div>
-</div>
-</div>
-</div>
 
 
 

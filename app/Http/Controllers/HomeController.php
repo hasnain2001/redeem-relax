@@ -263,24 +263,24 @@ class HomeController extends Controller
     return view('categories', compact('categories', ));
     }
     
-    public function viewcategory($name) {
-        $slug = Str::slug($name);
-        $title = ucwords(str_replace('-', ' ', $slug));
-    
-        // Fetch the store
-        $category = Categories::where('slug', $title)->first();
-    
-    
-        if (!$category) {
-    return redirect('404');
+        public function viewcategory($name) {
+            $slug = Str::slug($name);
+            $title = ucwords(str_replace('-', ' ', $slug));
+        
+            // Fetch the store
+            $category = Categories::where('slug', $title)->first();
+        
+        
+            if (!$category) {
+        return redirect('404');
+            }
+        
+            // Fetch related coupons and stores
+            $stores = Stores::where('category', $title)->get();
+        
+        
+            return view('related_category', compact('category', 'stores' ));
         }
-    
-        // Fetch related coupons and stores
-        $stores = Stores::where('category', $title)->get();
-    
-    
-        return view('related_category', compact('category', 'stores' ));
-    }
     
     
     

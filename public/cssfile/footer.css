@@ -13,9 +13,10 @@
             flex-wrap: wrap;
         }
         footer .footerimg {
-            padding-right: 0;
+
+            padding-left: 90px;
             padding-top: 80px;
-            width: 270px;
+            width: auto;
             height: 200px; /* Allow dynamic height */
         }
         footer a {
@@ -44,7 +45,7 @@
             display: inline-block;
             margin: 5px;
             padding: 10px 15px;
-            background-color: #772a9b;
+            background-color: #701e7d;
             border-radius: 5px;
             color: white;
         }
@@ -81,7 +82,7 @@
           box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
       }
       .subscribehbtn:hover {
-          background-color: #b4a9a9;
+          background-color: #701e7d;
           transform: scale(1.05);
       }
         /* .input-group button {
@@ -100,7 +101,10 @@
     footer .footerimg {
         width: 100%;
         height: 100px;
-        padding-top: 20px; /* Reduce padding to decrease space on mobile */
+        padding-top: 20px;
+        padding-left: 0;
+        
+
     }
     footer .col-md-8 {
         margin-top: 20px; /* Reduce the top margin to bring the sections closer */
